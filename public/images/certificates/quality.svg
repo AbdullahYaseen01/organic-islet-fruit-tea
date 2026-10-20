@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 840" role="img">
-  <title>Sample quality certificate</title>
+  <title>Quality certificate</title>
   <rect width="640" height="840" fill="#f7f1e4"/>
   <rect x="16" y="16" width="608" height="808" fill="none" stroke="#c4a35a" stroke-width="6"/>
   <rect x="32" y="32" width="576" height="776" fill="none" stroke="#c4a35a" stroke-width="1.5"/>
@@ -8,19 +8,16 @@
   <text x="320" y="168" text-anchor="middle" fill="#163026" font-family="Georgia, serif" font-size="42">Certificate</text>
   <text x="320" y="214" text-anchor="middle" fill="#163026" font-family="Georgia, serif" font-size="42">of Quality</text>
   <line x1="180" y1="246" x2="460" y2="246" stroke="#c4a35a" stroke-width="1"/>
-  <text x="320" y="292" text-anchor="middle" fill="#5c5346" font-family="Georgia, serif" font-size="18">This sample document is issued for</text>
+  <text x="320" y="292" text-anchor="middle" fill="#5c5346" font-family="Georgia, serif" font-size="18">This document is issued for</text>
   <text x="320" y="348" text-anchor="middle" fill="#163026" font-family="Georgia, serif" font-size="26">Kinoki Cleansing</text>
   <text x="320" y="382" text-anchor="middle" fill="#163026" font-family="Georgia, serif" font-size="26">Detox Foot Pads</text>
   <text x="320" y="440" text-anchor="middle" fill="#5c5346" font-family="Georgia, serif" font-size="17">Box of 10 adhesive pads</text>
   <text x="320" y="468" text-anchor="middle" fill="#5c5346" font-family="Georgia, serif" font-size="17">Checked for packing and labeling</text>
   <circle cx="320" cy="560" r="62" fill="#16a34a"/>
   <circle cx="320" cy="560" r="52" fill="none" stroke="#d7f5e3" stroke-width="2"/>
-  <text x="320" y="552" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="13" letter-spacing="2">SAMPLE</text>
-  <text x="320" y="574" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="16">Quality</text>
+  <text x="320" y="566" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="16">Quality</text>
   <text x="120" y="700" fill="#5c5346" font-family="Georgia, serif" font-size="15">No. SC-QA-1042</text>
   <text x="120" y="726" fill="#5c5346" font-family="Georgia, serif" font-size="15">12 March 2026</text>
   <text x="400" y="700" fill="#163026" font-family="Georgia, serif" font-size="20" font-style="italic">Safa Care</text>
   <line x1="400" y1="712" x2="530" y2="712" stroke="#c4a35a" stroke-width="1"/>
-  <text x="400" y="734" fill="#5c5346" font-family="Georgia, serif" font-size="13">Sample signature</text>
-  <text x="320" y="786" text-anchor="middle" fill="#8a6a2f" font-family="Georgia, serif" font-size="13" letter-spacing="3">DUMMY CERTIFICATE</text>
 </svg>

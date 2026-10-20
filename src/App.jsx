@@ -415,7 +415,6 @@ function Certificates() {
   return (
     <section className="certificates" aria-labelledby="certificates-title">
       <h2 id="certificates-title">Certificates</h2>
-      <p className="certificates-intro">Two sample documents for this page.</p>
       <ul>
         {CERTIFICATES.map((item) => (
           <li key={item.src}>

@@ -527,16 +527,11 @@ p {
   font-size: 1.45rem;
 }
 
-.certificates-intro {
-  margin-bottom: 14px;
-  color: #666;
-}
-
 .certificates ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
-  margin: 0;
+  margin: 14px 0 0;
   padding: 0;
   list-style: none;
 }

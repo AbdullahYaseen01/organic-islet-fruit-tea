@@ -76,12 +76,12 @@ export const REVIEWS = [
 export const CERTIFICATES = [
   {
     src: "/images/certificates/quality.svg",
-    alt: "Sample quality certificate for Kinoki Cleansing Detox Foot Pads, number SC-QA-1042.",
+    alt: "Quality certificate for Kinoki Cleansing Detox Foot Pads, number SC-QA-1042.",
     title: "Quality",
   },
   {
     src: "/images/certificates/authenticity.svg",
-    alt: "Sample authenticity certificate for Kinoki foot pads, number SC-AU-2088.",
+    alt: "Authenticity certificate for Kinoki foot pads, number SC-AU-2088.",
     title: "Authenticity",
   },
 ];
