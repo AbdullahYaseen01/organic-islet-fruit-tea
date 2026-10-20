@@ -213,9 +213,11 @@ p {
   line-height: 1.4;
 }
 
-.description img {
+.description img,
+.description video {
   width: 100%;
   height: auto;
+  background: #111;
 }
 
 .banner {

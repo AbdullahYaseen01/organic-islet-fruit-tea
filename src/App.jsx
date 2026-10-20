@@ -178,7 +178,7 @@ export default function App() {
       comboId: combo.id,
       quantity: combo.quantity,
       price: combo.price,
-      currency: "TWD",
+      currency: "AED",
       name: recipient,
       mobile,
       delivery,
@@ -205,7 +205,7 @@ export default function App() {
       <section className="hero" aria-label="Product photo">
         <img
           src="/images/hero.jpg"
-          alt="Promotional photo of Organic Islet Fruit Tea: a woman holds a jar of dried fruit beside a glass of tea. Chinese text is printed on this graphic and is not translated in the image itself."
+          alt="Two mint-green boxes of Mild Care Foot Pads, 10 pieces each, with a white adhesive pad in front."
           width="750"
           height="750"
         />
@@ -216,11 +216,11 @@ export default function App() {
         <div className="price-row">
           <div className="price-main">
             <span className="final-price">{HERO_PRICE}</span>
-            <span className="old-price">{HERO_OLD_PRICE}</span>
+            {HERO_OLD_PRICE ? <span className="old-price">{HERO_OLD_PRICE}</span> : null}
           </div>
           <div className="price-badges">
-            <span className="badge">Free shipping</span>
-            <span className="badge">7-day appreciation</span>
+            <span className="badge">Free delivery</span>
+            <span className="badge">10 pieces</span>
           </div>
         </div>
         <h1 id="product-title" className="product-title">
@@ -229,15 +229,15 @@ export default function App() {
         <ul className="perks">
           <li>
             <CheckIcon />
-            Cash on delivery
+            Free delivery
           </li>
           <li>
             <CheckIcon />
-            Convenience-store pickup
+            Herbal and gentle
           </li>
           <li>
             <CheckIcon />
-            T-Cat / Hsinchu home delivery
+            Apply to the sole while you rest
           </li>
         </ul>
         <button type="button" className="buy-now" onClick={scrollToOrder}>
@@ -259,8 +259,29 @@ export default function App() {
           if (block.type === "complications") return <ComplicationBanner key={block.type} />;
           if (block.type === "daily") return <DailyCupBanner key={block.type} />;
           if (block.type === "specs") return <ProductSpecs key={block.type} />;
+          if (block.type === "video") {
+            return (
+              <video
+                key={`${block.src}-${index}`}
+                src={block.src}
+                poster={block.poster}
+                controls
+                playsInline
+                muted
+                loop
+                preload="metadata"
+                aria-label={block.alt}
+              />
+            );
+          }
           return (
-            <img key={block.src} src={block.src} alt={block.alt} loading={index < 2 ? "eager" : "lazy"} decoding="async" />
+            <img
+              key={`${block.src}-${index}`}
+              src={block.src}
+              alt={block.alt}
+              loading={index < 2 ? "eager" : "lazy"}
+              decoding="async"
+            />
           );
         })}
       </section>
@@ -493,13 +514,13 @@ function GuaranteeBanner() {
     <figure className="banner banner-guarantee">
       <div className="seal" aria-hidden="true">
         <span>Satisfaction</span>
-        <strong>7-day returns, no questions asked</strong>
-        <span>Guarantee</span>
+        <strong>Free delivery on every box</strong>
+        <span>Included</span>
       </div>
-      <p className="banner-headline">Truly risk-free shopping</p>
+      <p className="banner-headline">Order and we deliver it free</p>
       <figcaption>
-        <span className="protect-mark">Consumer protection</span>
-        This shop has joined Taiwan’s “Consumer Protection Plan”
+        <span className="protect-mark">Herbal pad</span>
+        100% herbal and gentle ingredients, 10 pieces in each box
       </figcaption>
     </figure>
   );
@@ -508,14 +529,14 @@ function GuaranteeBanner() {
 function SalesBanner() {
   return (
     <figure className="banner banner-sales">
-      <p className="sales-kicker">Cumulative units sold</p>
+      <p className="sales-kicker">Box prices</p>
       <p className="sales-number">
-        150,000<span>+</span>
+        99<span> AED</span>
       </p>
-      <p className="sales-highlight">A welcome bonus — if you get it, you gain!!</p>
+      <p className="sales-highlight">3 boxes, 30 pieces — the lowest price in the offer</p>
       <p className="sales-pill">
-        <span>Bestseller</span>
-        <span>Limited-time offer</span>
+        <span>1 box 50</span>
+        <span>2 boxes 80</span>
       </p>
     </figure>
   );
@@ -523,17 +544,16 @@ function SalesBanner() {
 
 function BenefitsBanner() {
   const items = [
-    ["Regulate blood sugar", "Contains components similar to insulin, helps regulate blood sugar, and is called “natural insulin.”"],
-    ["Improve blood lipids", "Helps lower cholesterol and reduce the risk of atherosclerosis."],
-    ["Antioxidant", "Rich in polyphenols, vitamin C, and other antioxidants. Resists free radicals and slows aging."],
-    ["Anti-inflammatory effect", "Has an anti-inflammatory effect that helps ease inflammation."],
-    ["Aid digestion", "Promotes digestion and eases gastrointestinal discomfort."],
-    ["Weight management", "Supports weight management."],
-    ["Balance blood pressure", "Potassium helps the body clear excess sodium and eases the strain a high-salt diet puts on blood pressure."],
+    ["Deep cleansing", "Marketed as a detox foot patch that absorbs impurities through the sole."],
+    ["Circulation and metabolism", "The box says it improves blood circulation and metabolism."],
+    ["Fluids and toxins", "Described as removing excess fluids and toxins."],
+    ["Fatigue and stress", "Described as relieving fatigue and stress."],
+    ["Sleep and relaxation", "Described as promoting healthy sleep and relaxation."],
+    ["Pain and swelling", "Described as helping relieve pain and swelling."],
   ];
   return (
-    <section className="benefits" aria-label="Core health benefits of islet fruit">
-      <h3>Core health benefits of islet fruit</h3>
+    <section className="benefits" aria-label="What the foot pad packaging says">
+      <h3>What the packaging says</h3>
       <ol>
         {items.map(([title, copy]) => (
           <li key={title}>
@@ -547,13 +567,13 @@ function BenefitsBanner() {
 }
 
 function QuestionBanner() {
-  return <p className="red-banner">How long has it been since you paid attention to your blood sugar?</p>;
+  return <p className="red-banner">This patch can absorb dirt on your body</p>;
 }
 
 function ComplicationBanner() {
   return (
     <p className="yellow-banner">
-      The complications that follow are increasing, <mark>and they affect the whole body’s function</mark>
+      An affordable Ayurvedic remedy for <mark>obesity and impurities in the body</mark>
     </p>
   );
 }
@@ -561,28 +581,28 @@ function ComplicationBanner() {
 function DailyCupBanner() {
   return (
     <section className="daily-cup">
-      <p>One cup a day. It dropped so fast.</p>
+      <p>Place it on the sole. Leave it on while you rest.</p>
       <p>
-        Traditional Chinese medicine practitioner Luo Mingyu recommended this <mark>islet fruit tea</mark> on a wellness program.
+        Peel the white pad, press the <mark>dark herbal center</mark> to the sole, and remove it in the morning.
       </p>
-      <p>Lowers blood sugar, relieves thirst, and works well for blood-sugar control.</p>
+      <p>Your body will thank you.</p>
     </section>
   );
 }
 
 function ProductSpecs() {
   const rows = [
-    ["Product name", "Islet Fruit Tea"],
-    ["Flavor", "Original"],
-    ["Net weight", "100 g"],
-    ["Storage", "Keep in a cool, dry place"],
-    ["Ingredients", "Islet fruit"],
-    ["How to prepare", "Steep in boiling water"],
+    ["Product name", "Mild Care Foot Pads"],
+    ["Type", "Deep-cleansing detox foot patch"],
+    ["Contents", "10 pieces per box"],
+    ["Formula", "100% herbal and gentle ingredients"],
+    ["How to use", "Stick the pad on the sole and leave it on while you rest"],
+    ["Prices", "1 box AED 50, 2 boxes AED 80, 3 boxes AED 99"],
   ];
   return (
     <section className="specs" aria-label="Product information">
       <h3>Product information</h3>
-      <p>Islet fruit and tea archives</p>
+      <p>Foot pad details</p>
       <dl>
         {rows.map(([label, value]) => (
           <div key={label}>
@@ -598,8 +618,7 @@ function ProductSpecs() {
 function OriginBanner() {
   return (
     <p className="origin-bar">
-      Grown by the Chiayi Farmers’ Association: blood-sugar fruit —{" "}
-      <mark>islet fruit</mark> (also known as yacon)
+      Mild Care Foot Pads — <mark>deep-cleansing detoxify foot patch</mark>
     </p>
   );
 }
