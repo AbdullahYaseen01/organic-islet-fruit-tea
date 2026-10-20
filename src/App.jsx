@@ -1,6 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { submitOrder } from "./checkout";
-import { placeName } from "./data/places";
 import {
   COMBOS,
   GALLERY,
@@ -17,7 +16,7 @@ const HOME_NOTE =
 const HOME_NOTE_AGAIN =
   "Note: T-Cat or Hsinchu Logistics will deliver to your home. Leave a message if you want a specific carrier.";
 const STORE_NOTE =
-  "Note: The parcel will be held at the store you choose. You will need to pick it up yourself.";
+  "Note: Write your city and the store address. You will need to pick the parcel up yourself.";
 
 const DELIVERIES = [
   { id: "home", label: "Cash on delivery", icon: "cod" },
@@ -42,16 +41,13 @@ export default function App() {
   const nameRef = useRef(null);
   const phoneRef = useRef(null);
   const addressRef = useRef(null);
+  const cityRef = useRef(null);
   const [comboIndex, setComboIndex] = useState(2);
   const [delivery, setDelivery] = useState("home");
   const [homeClicks, setHomeClicks] = useState(0);
-  const [regions, setRegions] = useState([]);
-  const [regionsError, setRegionsError] = useState(false);
-  const [countyId, setCountyId] = useState("");
-  const [districtId, setDistrictId] = useState("");
-  const [storeValue, setStoreValue] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [city, setCity] = useState("");
   const [address, setAddress] = useState("");
   const [message, setMessage] = useState("");
   const [toast, setToast] = useState("");
@@ -60,36 +56,6 @@ export default function App() {
 
   const combo = COMBOS[comboIndex];
   const isStore = delivery === "seven" || delivery === "family";
-  const storeType = delivery === "seven" ? "1" : delivery === "family" ? "2" : "";
-
-  const county = useMemo(
-    () => regions.find((item) => String(item.id) === String(countyId)),
-    [regions, countyId],
-  );
-  const districts = county?.list ?? [];
-  const district = districts.find((item) => String(item.id) === String(districtId));
-  const stores = useMemo(() => {
-    if (!isStore || !district) return [];
-    return (district.city_store || []).filter((store) => String(store.type) === storeType);
-  }, [district, isStore, storeType]);
-
-  useEffect(() => {
-    let active = true;
-    fetch("/data/regions.json")
-      .then((response) => {
-        if (!response.ok) throw new Error("regions");
-        return response.json();
-      })
-      .then((data) => {
-        if (active) setRegions(data);
-      })
-      .catch(() => {
-        if (active) setRegionsError(true);
-      });
-    return () => {
-      active = false;
-    };
-  }, []);
 
   useEffect(() => {
     const update = () => {
@@ -124,29 +90,9 @@ export default function App() {
 
   function chooseDelivery(next) {
     setDelivery(next);
-    setCountyId("");
-    setDistrictId("");
-    setStoreValue("");
+    setCity("");
     setAddress("");
     if (next === "home") setHomeClicks((count) => count + 1);
-  }
-
-  function chooseCounty(value) {
-    setCountyId(value);
-    setDistrictId("");
-    setStoreValue("");
-    if (isStore) setAddress("");
-  }
-
-  function chooseDistrict(value) {
-    setDistrictId(value);
-    setStoreValue("");
-    if (isStore) setAddress("");
-  }
-
-  function chooseStore(value) {
-    setStoreValue(value);
-    if (value) setAddress(value);
   }
 
   function showMessage(text, field) {
@@ -168,11 +114,12 @@ export default function App() {
       showMessage("Please enter a contact mobile number", phoneRef.current);
       return;
     }
+    if (!city.trim()) {
+      showMessage("Please enter your city", cityRef.current);
+      return;
+    }
     if (!address.trim()) {
-      showMessage(
-        "Please complete the delivery address",
-        isStore ? null : addressRef.current,
-      );
+      showMessage("Please complete the delivery address", addressRef.current);
       return;
     }
 
@@ -186,8 +133,7 @@ export default function App() {
       name: recipient,
       mobile,
       delivery,
-      countyId,
-      districtId,
+      city: city.trim(),
       address: address.trim(),
       message: message.trim(),
     });
@@ -197,7 +143,7 @@ export default function App() {
 
   const note = isStore ? STORE_NOTE : homeClicks > 0 ? HOME_NOTE_AGAIN : HOME_NOTE;
   const addressPlaceholder = isStore
-    ? "Select a county, then a district, then a store"
+    ? "Street, and the store name if you want pickup"
     : "Enter your full address so the courier can reach you";
 
   return (
@@ -386,20 +332,17 @@ export default function App() {
             <abbr className="req" title="required">
               *
             </abbr>
-            County
+            City
           </span>
-          <select
-            value={countyId}
-            onChange={(event) => chooseCounty(event.target.value)}
-            disabled={regions.length === 0}
-          >
-            <option value="">{regionsError ? "Areas could not be loaded" : "== Select a county or city =="}</option>
-            {regions.map((item) => (
-              <option key={item.id} value={item.id}>
-                {placeName(item.title)}
-              </option>
-            ))}
-          </select>
+          <input
+            ref={cityRef}
+            name="city"
+            autoComplete="address-level2"
+            placeholder="Type your city"
+            value={city}
+            onChange={(event) => setCity(event.target.value)}
+            required
+          />
         </label>
 
         <label className="field">
@@ -407,63 +350,18 @@ export default function App() {
             <abbr className="req" title="required">
               *
             </abbr>
-            District
+            Address
           </span>
-          <select value={districtId} onChange={(event) => chooseDistrict(event.target.value)}>
-            <option value="">== Select a district ==</option>
-            {districts.map((item) => (
-              <option key={item.id} value={item.id}>
-                {placeName(item.title)}
-              </option>
-            ))}
-          </select>
+          <input
+            ref={addressRef}
+            name="address"
+            autoComplete="street-address"
+            placeholder={addressPlaceholder}
+            value={address}
+            onChange={(event) => setAddress(event.target.value)}
+            required
+          />
         </label>
-
-        {isStore ? (
-          <label className="field">
-            <span className="field-label">
-              <abbr className="req" title="required">
-                *
-              </abbr>
-              Store
-            </span>
-            <select value={storeValue} onChange={(event) => chooseStore(event.target.value)}>
-              {districtId && stores.length === 0 ? (
-                <option value="">No stores in this area</option>
-              ) : (
-                <>
-                  <option value="">== Select a store ==</option>
-                  {stores.map((store) => {
-                    const value = `${store.detail}, store: ${store.name}, store no. ${store.number}`;
-                    return (
-                      <option key={`${store.type}-${store.number}-${store.name}`} value={value}>
-                        {store.name} — {store.detail}
-                      </option>
-                    );
-                  })}
-                </>
-              )}
-            </select>
-          </label>
-        ) : (
-          <label className="field">
-            <span className="field-label">
-              <abbr className="req" title="required">
-                *
-              </abbr>
-              Address
-            </span>
-            <input
-              ref={addressRef}
-              name="address"
-              autoComplete="street-address"
-              placeholder={addressPlaceholder}
-              value={address}
-              onChange={(event) => setAddress(event.target.value)}
-              required
-            />
-          </label>
-        )}
 
         <label className="field field-message">
           <span className="field-label">Message</span>
