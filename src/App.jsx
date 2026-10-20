@@ -20,8 +20,7 @@ const HOME_NOTE =
   "Note: We will deliver the parcel to your home. Please watch for it.";
 const HOME_NOTE_AGAIN =
   "Note: T-Cat or Hsinchu Logistics will deliver to your home. Leave a message if you want a specific carrier.";
-const STORE_NOTE =
-  "Note: Write your city and the store address. You will need to pick the parcel up yourself.";
+const STORE_NOTE = "Note: You will need to pick the parcel up yourself.";
 
 const DELIVERIES = [
   { id: "home", label: "Cash on delivery", icon: "cod" },
@@ -45,7 +44,6 @@ export default function App() {
   const heroCtaRef = useRef(null);
   const nameRef = useRef(null);
   const phoneRef = useRef(null);
-  const addressRef = useRef(null);
   const cityRef = useRef(null);
   const [comboIndex, setComboIndex] = useState(1);
   const [delivery, setDelivery] = useState("home");
@@ -53,7 +51,6 @@ export default function App() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [city, setCity] = useState("");
-  const [address, setAddress] = useState("");
   const [toast, setToast] = useState("");
   const [showSticky, setShowSticky] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -95,7 +92,6 @@ export default function App() {
   function chooseDelivery(next) {
     setDelivery(next);
     setCity("");
-    setAddress("");
     if (next === "home") setHomeClicks((count) => count + 1);
   }
 
@@ -122,10 +118,6 @@ export default function App() {
       showMessage("Please enter your city", cityRef.current);
       return;
     }
-    if (!address.trim()) {
-      showMessage("Please complete the delivery address", addressRef.current);
-      return;
-    }
 
     setSubmitting(true);
     const result = await submitOrder({
@@ -138,16 +130,12 @@ export default function App() {
       mobile,
       delivery,
       city: city.trim(),
-      address: address.trim(),
     });
     setSubmitting(false);
     setToast(result.message);
   }
 
   const note = isStore ? STORE_NOTE : homeClicks > 0 ? HOME_NOTE_AGAIN : HOME_NOTE;
-  const addressPlaceholder = isStore
-    ? "Street, and the store name if you want pickup"
-    : "Enter your full address so the courier can reach you";
 
   return (
     <>
@@ -359,24 +347,6 @@ export default function App() {
 
         <p className="delivery-note">{note}</p>
 
-        <label className="field">
-          <span className="field-label">
-            <abbr className="req" title="required">
-              *
-            </abbr>
-            Address
-          </span>
-          <input
-            ref={addressRef}
-            name="address"
-            autoComplete="street-address"
-            placeholder={addressPlaceholder}
-            value={address}
-            onChange={(event) => setAddress(event.target.value)}
-            required
-          />
-        </label>
-
         <button type="submit" className="place-order" disabled={submitting}>
           {submitting ? "Checking order…" : "Submit my details"}
         </button>
@@ -387,7 +357,6 @@ export default function App() {
       <Returns />
 
       <footer className="site-footer">
-        <p className="demo-note">{DEMO_ADDRESS.note}</p>
         <address>
           <strong>{DEMO_ADDRESS.name}</strong>
           {DEMO_ADDRESS.lines.map((line) => (
@@ -430,7 +399,7 @@ function OrderConfirm({ onShop }) {
   return (
     <section className="order-confirm" aria-labelledby="confirm-title">
       <p id="confirm-title" className="warm-reminder">
-        Warm reminder. Once your address is filled in, tap Confirm placing an order. That counts as a complete order.
+        Warm reminder. Once your details are filled in, tap Confirm placing an order. That counts as a complete order.
       </p>
       <button type="submit" form="order-box" className="confirm-order">
         <span aria-hidden="true">🪙</span>

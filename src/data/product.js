@@ -165,7 +165,6 @@ export const RETURN_POLICY = [
 export const DEMO_ADDRESS = {
   name: "Safa Care Pharmacy",
   lines: ["123 King Fahd Road, Al Olaya", "Riyadh 12211", "Saudi Arabia"],
-  note: "Demo address for this presentation. Replace it with the verified business address before launch.",
 };
 
 export function formatPrice(amount) {
