@@ -1,7 +1,12 @@
-export const PRODUCT_NAME =
-  "Mild Care Foot Pads, a deep-cleansing detox foot patch. The box says it quickly absorbs toxins and impurities, with 100% herbal and gentle ingredients. It is described as improving blood circulation and metabolism, drawing away excess fluid and toxins, easing fatigue and stress, supporting healthy sleep and relaxation, and helping relieve pain and swelling. An affordable Ayurvedic foot pad for body impurities, 10 pieces per box.";
-
 export const SHORT_NAME = "Mild Care Foot Pads";
+
+export const HEADLINE = "Mild Care Foot Pads";
+
+export const LEAD =
+  "A deep-cleansing herbal foot patch. Press it on the sole before you rest. Each box has 10 pieces, and delivery is free.";
+
+export const PRODUCT_NAME =
+  "Mild Care Foot Pads. The packaging says this detox foot patch quickly absorbs toxins and impurities, with 100% herbal and gentle ingredients. It is described as supporting circulation and metabolism, easing fatigue, and helping you rest. 10 pieces per box.";
 
 export const HERO_PRICE = "AED 50.00";
 export const HERO_OLD_PRICE = "";
@@ -23,80 +28,89 @@ export const COMBOS = [
     id: "box-3",
     quantity: 30,
     price: 99,
-    label: "3 boxes (30 pieces) — AED 99",
+    label: "Best value · 3 boxes (30 pieces) — AED 99",
   },
 ];
 
-const PHOTOS = [
+export const REVIEWS = [
   {
+    name: "Nadia",
+    stars: 5,
+    text: "I stick the pad on before bed. It stays put, and it peels off easily in the morning.",
+  },
+  {
+    name: "Omar",
+    stars: 5,
+    text: "The box came with free delivery. Ten pads was enough for me to try a full round.",
+  },
+  {
+    name: "Lina",
+    stars: 4,
+    text: "It feels gentle on the skin. I liked that the box describes the formula as herbal.",
+  },
+  {
+    name: "Hassan",
+    stars: 5,
+    text: "I took the two-box offer. The pads are simple to use and the price for 20 pieces made sense.",
+  },
+];
+
+export const GALLERY = [
+  {
+    type: "image",
+    src: "/images/desc/hands-product.jpg",
+    alt: "Hands holding a Mild Care Foot Pads box and one adhesive pad.",
+  },
+  {
+    type: "image",
     src: "/images/desc/two-boxes.jpg",
-    alt: "Two boxes of Mild Care Foot Pads, 10 pieces each.",
+    alt: "Two boxes of Mild Care Foot Pads on a cream background.",
   },
   {
+    type: "image",
     src: "/images/desc/boxes-studio.jpg",
-    alt: "A Mild Care Foot Pads box on a white background.",
+    alt: "A single Mild Care Foot Pads box in a studio shot.",
   },
   {
+    type: "image",
     src: "/images/desc/pad-closeup.jpg",
-    alt: "A white adhesive foot pad with a dark herbal center.",
+    alt: "Close-up of the white foot pad and its dark herbal center.",
   },
   {
+    type: "image",
     src: "/images/desc/apply-sole.jpg",
-    alt: "A foot pad being pressed onto the sole of a foot.",
+    alt: "The pad being pressed onto the sole of a foot.",
   },
   {
+    type: "image",
     src: "/images/desc/herbs-box.jpg",
-    alt: "Herbal ingredients displayed with a Mild Care Foot Pads box.",
+    alt: "Herbal ingredients arranged with a Mild Care Foot Pads box.",
   },
   {
+    type: "image",
     src: "/images/desc/how-to-use.jpg",
-    alt: "How to use the pad: peel it, place it on the sole, then remove it.",
+    alt: "Three steps for peeling, placing, and removing the pad.",
   },
   {
+    type: "image",
     src: "/images/desc/used-pad.jpg",
-    alt: "A used foot pad with a darkened center.",
+    alt: "A used foot pad showing a darkened center.",
   },
-];
-
-const VIDEOS = [
   {
+    type: "image",
+    src: "/images/desc/morning-tray.jpg",
+    alt: "A morning tray with the foot-pad box and fresh pads.",
+  },
+  {
+    type: "video",
     src: "/videos/foot-pads-overview.mp4",
-    poster: "/images/desc/pad-closeup.jpg",
-    alt: "Video showing the foot pads and how the patch is applied.",
+    alt: "Video showing how the foot pad is applied.",
   },
   {
+    type: "video",
     src: "/videos/foot-pads-offer.mp4",
-    poster: "/images/desc/two-boxes.jpg",
-    alt: "Video showing the 50, 80, and 99 AED box prices.",
+    alt: "Video showing the AED 50, 80, and 99 box prices.",
   },
-];
-
-const VIDEO_SLOTS = new Set([12, 15, 19, 22, 23, 24, 34]);
-const TEXT_SLOTS = new Set([9, 11, 14, 18, 49]);
-
-function mediaBlock(number) {
-  if (VIDEO_SLOTS.has(number)) {
-    const video = VIDEOS[[...VIDEO_SLOTS].indexOf(number) % VIDEOS.length];
-    return { type: "video", ...video };
-  }
-  const photo = PHOTOS[(number - 5) % PHOTOS.length];
-  return { type: "image", ...photo };
-}
-
-export const STORY = [
-  { type: "guarantee" },
-  { type: "sales" },
-  { type: "origin" },
-  ...Array.from({ length: 45 }, (_, index) => {
-    const number = index + 5;
-    if (number === 9) return { type: "benefits" };
-    if (number === 11) return { type: "question" };
-    if (number === 14) return { type: "complications" };
-    if (number === 18) return { type: "daily" };
-    if (number === 49) return { type: "specs" };
-    if (TEXT_SLOTS.has(number)) return null;
-    return mediaBlock(number);
-  }).filter(Boolean),
 ];
 
 export function formatPrice(amount) {

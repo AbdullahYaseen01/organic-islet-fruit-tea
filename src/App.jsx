@@ -3,10 +3,12 @@ import { submitOrder } from "./checkout";
 import { placeName } from "./data/places";
 import {
   COMBOS,
-  STORY,
+  GALLERY,
+  HEADLINE,
   HERO_OLD_PRICE,
   HERO_PRICE,
-  PRODUCT_NAME,
+  LEAD,
+  REVIEWS,
   SHORT_NAME,
   formatPrice,
 } from "./data/product";
@@ -41,10 +43,11 @@ function CheckIcon() {
 
 export default function App() {
   const orderRef = useRef(null);
+  const heroCtaRef = useRef(null);
   const nameRef = useRef(null);
   const phoneRef = useRef(null);
   const addressRef = useRef(null);
-  const [comboIndex, setComboIndex] = useState(0);
+  const [comboIndex, setComboIndex] = useState(2);
   const [delivery, setDelivery] = useState("home");
   const [homeClicks, setHomeClicks] = useState(0);
   const [regions, setRegions] = useState([]);
@@ -57,7 +60,7 @@ export default function App() {
   const [address, setAddress] = useState("");
   const [message, setMessage] = useState("");
   const [toast, setToast] = useState("");
-  const [showSticky, setShowSticky] = useState(true);
+  const [showSticky, setShowSticky] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
   const combo = COMBOS[comboIndex];
@@ -95,9 +98,15 @@ export default function App() {
 
   useEffect(() => {
     const update = () => {
-      const node = orderRef.current;
-      if (!node) return;
-      setShowSticky(node.getBoundingClientRect().top >= window.innerHeight);
+      const order = orderRef.current;
+      const heroCta = heroCtaRef.current;
+      if (!order) return;
+      const orderReached = order.getBoundingClientRect().top < window.innerHeight;
+      const heroBox = heroCta?.getBoundingClientRect();
+      const heroCtaVisible = Boolean(
+        heroBox && heroBox.bottom > 0 && heroBox.top < window.innerHeight,
+      );
+      setShowSticky(!orderReached && !heroCtaVisible);
     };
     update();
     window.addEventListener("scroll", update, { passive: true });
@@ -205,7 +214,7 @@ export default function App() {
       <section className="hero" aria-label="Product photo">
         <img
           src="/images/hero.jpg"
-          alt="Two mint-green boxes of Mild Care Foot Pads, 10 pieces each, with a white adhesive pad in front."
+          alt="A woman holding a mint-green box of Mild Care Foot Pads toward the camera."
           width="750"
           height="750"
         />
@@ -224,8 +233,9 @@ export default function App() {
           </div>
         </div>
         <h1 id="product-title" className="product-title">
-          <span className="badge badge-time">Limited-time offer</span> {PRODUCT_NAME}
+          <span className="badge badge-time">Free delivery</span> {HEADLINE}
         </h1>
+        <p className="lead">{LEAD}</p>
         <ul className="perks">
           <li>
             <CheckIcon />
@@ -240,9 +250,9 @@ export default function App() {
             Apply to the sole while you rest
           </li>
         </ul>
-        <button type="button" className="buy-now" onClick={scrollToOrder}>
+        <button type="button" className="buy-now" ref={heroCtaRef} onClick={scrollToOrder}>
           <CartIcon />
-          <span>Buy now</span>
+          <span>Send my details</span>
         </button>
       </section>
 
@@ -250,47 +260,50 @@ export default function App() {
 
       <section className="description" aria-labelledby="description-title">
         <h2 id="description-title">Product description</h2>
-        {STORY.map((block, index) => {
-          if (block.type === "guarantee") return <GuaranteeBanner key={block.type} />;
-          if (block.type === "sales") return <SalesBanner key={block.type} />;
-          if (block.type === "origin") return <OriginBanner key={block.type} />;
-          if (block.type === "benefits") return <BenefitsBanner key={block.type} />;
-          if (block.type === "question") return <QuestionBanner key={block.type} />;
-          if (block.type === "complications") return <ComplicationBanner key={block.type} />;
-          if (block.type === "daily") return <DailyCupBanner key={block.type} />;
-          if (block.type === "specs") return <ProductSpecs key={block.type} />;
-          if (block.type === "video") {
-            return (
-              <video
-                key={`${block.src}-${index}`}
-                src={block.src}
-                poster={block.poster}
-                controls
-                playsInline
-                muted
-                loop
-                preload="metadata"
-                aria-label={block.alt}
-              />
-            );
-          }
-          return (
+        <GuaranteeBanner />
+        <SalesBanner />
+        <OriginBanner />
+        <BenefitsBanner />
+        {GALLERY.map((block, index) =>
+          block.type === "video" ? (
+            <video
+              key={block.src}
+              src={block.src}
+              controls
+              playsInline
+              muted
+              loop
+              preload="metadata"
+              aria-label={block.alt}
+            />
+          ) : (
             <img
-              key={`${block.src}-${index}`}
+              key={block.src}
               src={block.src}
               alt={block.alt}
               loading={index < 2 ? "eager" : "lazy"}
               decoding="async"
             />
-          );
-        })}
+          ),
+        )}
+        <QuestionBanner />
+        <ComplicationBanner />
+        <DailyCupBanner />
+        <ProductSpecs />
       </section>
 
+      <Reviews />
+
       <form id="order-box" ref={orderRef} className="order" onSubmit={onSubmit} noValidate>
-        <h2>Confirm your order</h2>
+        <h2>Leave your details</h2>
+        <p className="order-note">Choose a box, then send your name and phone. Delivery is free.</p>
         <div className="order-product">
-          <img src="/images/hero.jpg" alt="" width="100" height="100" />
-          <p>{PRODUCT_NAME}</p>
+          <img src="/images/desc/order-box.jpg" alt="" width="100" height="100" />
+          <p>
+            <strong>{SHORT_NAME}</strong>
+            <br />
+            {LEAD}
+          </p>
         </div>
 
         <div className="combos" role="radiogroup" aria-label="Package">
@@ -473,7 +486,7 @@ export default function App() {
         </label>
 
         <button type="submit" className="place-order" disabled={submitting}>
-          {submitting ? "Checking order…" : "Place order"}
+          {submitting ? "Checking order…" : "Submit my details"}
         </button>
       </form>
 
@@ -485,7 +498,7 @@ export default function App() {
         <div className="sticky-buy">
           <button type="button" onClick={scrollToOrder}>
             <CartIcon />
-            Buy now
+            Send my details
           </button>
         </div>
       )}
@@ -506,6 +519,34 @@ export default function App() {
         </div>
       )}
     </>
+  );
+}
+
+function Reviews() {
+  return (
+    <section className="reviews" aria-labelledby="reviews-title">
+      <h2 id="reviews-title">Customer feedback</h2>
+      <p className="reviews-intro">Notes from people who ordered the pads.</p>
+      <ul>
+        {REVIEWS.map((review) => (
+          <li key={review.name}>
+            <p className="stars" aria-label={`${review.stars} out of 5 stars`}>
+              {"★".repeat(review.stars)}
+              {"☆".repeat(5 - review.stars)}
+            </p>
+            <blockquote>{review.text}</blockquote>
+            <p className="reviewer">{review.name}</p>
+          </li>
+        ))}
+      </ul>
+      <button
+        type="button"
+        className="buy-now reviews-cta"
+        onClick={() => document.getElementById("order-box")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+      >
+        Get free delivery
+      </button>
+    </section>
   );
 }
 
