@@ -221,7 +221,7 @@ export default function App() {
           <img
             className="pharmacy-main"
             src="/images/hero.jpg"
-            alt="A pharmacist in a bright pharmacy holding a Kinoki box, with colorful shelves and a green cross behind her."
+            alt="A pharmacist in a bright pharmacy holding a Kinoki box and a foot pad out toward the camera."
             width="900"
             height="1200"
           />
