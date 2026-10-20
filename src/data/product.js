@@ -35,23 +35,39 @@ export const COMBOS = [
 export const REVIEWS = [
   {
     name: "Nadia",
+    note: "Ordered 1 box",
     stars: 5,
-    text: "I stick the Kinoki pad on before bed. It stays put, and it peels off easily in the morning.",
+    text: "I was not sure at first, so I tried one pad. Stuck it on my sole, went to sleep, and in the morning it peeled right off. No mess. I already told my sister to get a box.",
   },
   {
     name: "Omar",
+    note: "Ordered 2 boxes",
     stars: 5,
-    text: "The box came with free delivery. Ten pads was enough for me to try a full round.",
+    text: "The parcel actually arrived free. I opened it and counted ten pads in the box. I use one before bed now. Two boxes made more sense than buying again next week.",
   },
   {
     name: "Lina",
+    note: "Ordered 1 box",
     stars: 4,
-    text: "The white pad is simple to place on the sole. The box is clearly labeled Kinoki.",
+    text: "The pad is thin and it stays on. I press the center to my sole and leave it while I rest. Morning, peel, done. I took one star off only because I wanted the steps printed bigger on the box.",
   },
   {
     name: "Hassan",
+    note: "Ordered 3 boxes",
     stars: 5,
-    text: "I took the two-box offer. The pads are easy to use and the price for 20 pieces made sense.",
+    text: "I watched the video and ordered the same night. My wife uses one too. We peel, press, and forget it until morning. 99 for 30 pieces was the easy choice.",
+  },
+  {
+    name: "Aisha",
+    note: "Ordered 2 boxes",
+    stars: 5,
+    text: "Honestly I thought it would slip off. It didn't. White pad, dark center, stuck to the sole the whole night. I keep the second box in the drawer so I don't run out.",
+  },
+  {
+    name: "Yusuf",
+    note: "Ordered 1 box",
+    stars: 5,
+    text: "Don't overthink it. One pad, sole, sleep. I took it off with my coffee. Delivery was free and the box was Kinoki, same as the picture.",
   },
 ];
 
@@ -60,6 +76,11 @@ export const GALLERY = [
     type: "image",
     src: "/images/desc/hands-product.jpg",
     alt: "Hands holding a Kinoki Cleansing Detox Foot Pads box and one adhesive pad.",
+  },
+  {
+    type: "video",
+    src: "/videos/foot-pads-overview.mp4",
+    alt: "Video showing the Kinoki foot pad on the sole.",
   },
   {
     type: "image",
@@ -85,6 +106,11 @@ export const GALLERY = [
     type: "image",
     src: "/images/desc/soles.jpg",
     alt: "Both soles wearing white Kinoki detox pads.",
+  },
+  {
+    type: "video",
+    src: "/videos/foot-pads-offer.mp4",
+    alt: "Video showing the Kinoki box offer.",
   },
   {
     type: "image",

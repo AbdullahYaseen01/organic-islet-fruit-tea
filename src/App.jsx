@@ -271,8 +271,6 @@ export default function App() {
               src={block.src}
               controls
               playsInline
-              muted
-              loop
               preload="metadata"
               aria-label={block.alt}
             />
@@ -525,17 +523,25 @@ export default function App() {
 function Reviews() {
   return (
     <section className="reviews" aria-labelledby="reviews-title">
-      <h2 id="reviews-title">Customer feedback</h2>
-      <p className="reviews-intro">Notes from people who ordered the pads.</p>
+      <h2 id="reviews-title">What people are saying</h2>
+      <p className="reviews-intro">Straight from customers who ordered Kinoki.</p>
       <ul>
         {REVIEWS.map((review) => (
           <li key={review.name}>
-            <p className="stars" aria-label={`${review.stars} out of 5 stars`}>
-              {"★".repeat(review.stars)}
-              {"☆".repeat(5 - review.stars)}
-            </p>
+            <div className="review-head">
+              <span className="avatar" aria-hidden="true">
+                {review.name.slice(0, 1)}
+              </span>
+              <div>
+                <p className="reviewer">{review.name}</p>
+                <p className="review-note">{review.note}</p>
+              </div>
+              <p className="stars" aria-label={`${review.stars} out of 5 stars`}>
+                {"★".repeat(review.stars)}
+                {"☆".repeat(5 - review.stars)}
+              </p>
+            </div>
             <blockquote>{review.text}</blockquote>
-            <p className="reviewer">{review.name}</p>
           </li>
         ))}
       </ul>
