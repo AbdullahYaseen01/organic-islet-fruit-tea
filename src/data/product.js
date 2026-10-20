@@ -8,27 +8,23 @@ export const LEAD =
 export const PRODUCT_NAME =
   "Kinoki Cleansing Detox Foot Pads. White adhesive pads for the soles, sold in boxes of 10. The packaging says cleanse and energize your body.";
 
-export const HERO_PRICE = "AED 50.00";
+export const PHARMACY_NAME = "Safa Care Pharmacy";
+
+export const HERO_PRICE = "SAR 119";
 export const HERO_OLD_PRICE = "";
 
 export const COMBOS = [
   {
-    id: "box-1",
-    quantity: 10,
-    price: 50,
-    label: "1 box (10 pieces) — AED 50",
+    id: "pack-4",
+    quantity: 40,
+    price: 119,
+    label: "Pack of 4 boxes — SAR 119",
   },
   {
-    id: "box-2",
-    quantity: 20,
-    price: 80,
-    label: "2 boxes (20 pieces) — AED 80",
-  },
-  {
-    id: "box-3",
-    quantity: 30,
-    price: 99,
-    label: "Best value · 3 boxes (30 pieces) — AED 99",
+    id: "pack-8",
+    quantity: 80,
+    price: 149,
+    label: "Best value · Pack of 8 boxes — SAR 149",
   },
 ];
 
@@ -59,7 +55,7 @@ export const REVIEWS = [
     photo: "/images/reviews/hassan.jpg",
     note: "9:28 pm",
     stars: 5,
-    text: "I watched the video and ordered the same night. My wife uses one too. We peel, press, and leave it till morning. 99 for 30 pieces was the easy pick.",
+    text: "I watched the video and ordered the same night. My wife uses one too. We peel, press, and leave it till morning. SAR 149 for 8 boxes was the easy pick.",
   },
   {
     name: "Aisha",
@@ -136,5 +132,5 @@ export const GALLERY = [
 ];
 
 export function formatPrice(amount) {
-  return `AED ${Number(amount).toFixed(2)}`;
+  return `SAR ${Number(amount).toFixed(2)}`;
 }

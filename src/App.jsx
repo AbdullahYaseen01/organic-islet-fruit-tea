@@ -5,6 +5,7 @@ import {
   GALLERY,
   HEADLINE,
   HERO_PRICE,
+  PHARMACY_NAME,
   LEAD,
   REVIEWS,
   SHORT_NAME,
@@ -42,14 +43,13 @@ export default function App() {
   const phoneRef = useRef(null);
   const addressRef = useRef(null);
   const cityRef = useRef(null);
-  const [comboIndex, setComboIndex] = useState(2);
+  const [comboIndex, setComboIndex] = useState(1);
   const [delivery, setDelivery] = useState("home");
   const [homeClicks, setHomeClicks] = useState(0);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [city, setCity] = useState("");
   const [address, setAddress] = useState("");
-  const [message, setMessage] = useState("");
   const [toast, setToast] = useState("");
   const [showSticky, setShowSticky] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -129,13 +129,12 @@ export default function App() {
       comboId: combo.id,
       quantity: combo.quantity,
       price: combo.price,
-      currency: "AED",
+      currency: "SAR",
       name: recipient,
       mobile,
       delivery,
       city: city.trim(),
       address: address.trim(),
-      message: message.trim(),
     });
     setSubmitting(false);
     setToast(result.message);
@@ -160,7 +159,7 @@ export default function App() {
               <rect x="3" y="10" width="18" height="4" rx="1" />
             </svg>
           </span>
-          <p>Our pharmacy</p>
+          <p>{PHARMACY_NAME}</p>
           <span className="pharmacy-chip">Free delivery</span>
         </div>
         <div className="pharmacy-stage">
@@ -177,7 +176,7 @@ export default function App() {
         <p className="pharmacy-lead">{LEAD}</p>
         <p className="pharmacy-price">
           <strong>{HERO_PRICE}</strong>
-          <span>for 10 pieces · 2 boxes AED 80 · 3 boxes AED 99</span>
+          <span>4 boxes · 8 boxes SAR 149</span>
         </p>
         <div className="pharmacy-actions">
           <button type="button" className="pharmacy-primary" ref={heroCtaRef} onClick={scrollToOrder}>
@@ -372,16 +371,6 @@ export default function App() {
           />
         </label>
 
-        <label className="field field-message">
-          <span className="field-label">Message</span>
-          <textarea
-            name="message"
-            placeholder="Leave a special request, or anything else you would like us to know"
-            value={message}
-            onChange={(event) => setMessage(event.target.value)}
-          />
-        </label>
-
         <button type="submit" className="place-order" disabled={submitting}>
           {submitting ? "Checking order…" : "Submit my details"}
         </button>
@@ -475,12 +464,12 @@ function SalesBanner() {
     <figure className="banner banner-sales">
       <p className="sales-kicker">Box prices</p>
       <p className="sales-number">
-        99<span> AED</span>
+        149<span> SAR</span>
       </p>
-      <p className="sales-highlight">3 boxes, 30 pieces — the lowest price in the offer</p>
+      <p className="sales-highlight">8 boxes — the lowest price in the offer</p>
       <p className="sales-pill">
-        <span>1 box 50</span>
-        <span>2 boxes 80</span>
+        <span>4 boxes 119</span>
+        <span>8 boxes 149</span>
       </p>
     </figure>
   );
@@ -549,7 +538,7 @@ function ProductSpecs() {
     ["Type", "Cleansing detox foot pads"],
     ["Contents", "10 pieces per box"],
     ["How to use", "Stick the pad on the sole and leave it on while you rest"],
-    ["Prices", "1 box AED 50, 2 boxes AED 80, 3 boxes AED 99"],
+    ["Prices", "4 boxes SAR 119, 8 boxes SAR 149"],
   ];
   return (
     <section className="specs" aria-label="Product information">
