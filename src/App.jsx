@@ -5,7 +5,6 @@ import {
   COMBOS,
   GALLERY,
   HEADLINE,
-  HERO_OLD_PRICE,
   HERO_PRICE,
   LEAD,
   REVIEWS,
@@ -35,10 +34,6 @@ function CartIcon() {
       />
     </svg>
   );
-}
-
-function CheckIcon() {
-  return <img className="check-icon" src="/icons/check.svg" alt="" />;
 }
 
 export default function App() {
@@ -211,49 +206,53 @@ export default function App() {
         Skip to order form
       </a>
 
-      <section className="hero" aria-label="Product photo">
-        <img
-          src="/images/hero.jpg"
-          alt="A woman holding a Kinoki Cleansing Detox Foot Pads box toward the camera."
-          width="750"
-          height="750"
-        />
-        <div className="hero-accent" />
-      </section>
-
-      <section className="summary" aria-labelledby="product-title">
-        <div className="price-row">
-          <div className="price-main">
-            <span className="final-price">{HERO_PRICE}</span>
-            {HERO_OLD_PRICE ? <span className="old-price">{HERO_OLD_PRICE}</span> : null}
-          </div>
-          <div className="price-badges">
-            <span className="badge">Free delivery</span>
-            <span className="badge">10 pieces</span>
-          </div>
+      <section className="pharmacy-hero" aria-labelledby="product-title">
+        <div className="pharmacy-bar">
+          <span className="pharmacy-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16">
+              <rect x="10" y="3" width="4" height="18" rx="1" />
+              <rect x="3" y="10" width="18" height="4" rx="1" />
+            </svg>
+          </span>
+          <p>Pharmacy counter</p>
+          <span className="pharmacy-chip">Free delivery</span>
         </div>
-        <h1 id="product-title" className="product-title">
-          <span className="badge badge-time">Free delivery</span> {HEADLINE}
-        </h1>
-        <p className="lead">{LEAD}</p>
-        <ul className="perks">
-          <li>
-            <CheckIcon />
-            Free delivery
-          </li>
-          <li>
-            <CheckIcon />
-            Cleansing detox pads
-          </li>
-          <li>
-            <CheckIcon />
-            Apply to the sole while you rest
-          </li>
+        <div className="pharmacy-stage">
+          <img
+            className="pharmacy-main"
+            src="/images/hero.jpg"
+            alt="Kinoki boxes and open pads on a wooden pharmacy counter, with stocked glass shelves and a green cross behind them."
+            width="1200"
+            height="900"
+          />
+          <img
+            className="pharmacy-dish"
+            src="/images/hero-dish.jpg"
+            alt="Three Kinoki cleansing pads on a glass dish."
+            width="640"
+            height="640"
+          />
+        </div>
+        <p className="pharmacy-kicker">Cleansing detox foot pads</p>
+        <h1 id="product-title">{HEADLINE}</h1>
+        <p className="pharmacy-lead">{LEAD}</p>
+        <p className="pharmacy-price">
+          <strong>{HERO_PRICE}</strong>
+          <span>for 10 pieces · 2 boxes AED 80 · 3 boxes AED 99</span>
+        </p>
+        <div className="pharmacy-actions">
+          <button type="button" className="pharmacy-primary" ref={heroCtaRef} onClick={scrollToOrder}>
+            Inquire now
+          </button>
+          <a className="pharmacy-secondary" href="https://lin.ee/QXp84HX" target="_blank" rel="noreferrer">
+            Message us
+          </a>
+        </div>
+        <ul className="pharmacy-trust">
+          <li>10 pads in every box</li>
+          <li>Cash on delivery</li>
+          <li>Ask us before you order</li>
         </ul>
-        <button type="button" className="buy-now" ref={heroCtaRef} onClick={scrollToOrder}>
-          <CartIcon />
-          <span>Send my details</span>
-        </button>
       </section>
 
       <div className="divider" />

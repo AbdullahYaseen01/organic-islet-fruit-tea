@@ -64,6 +64,210 @@ p {
   top: 8px;
 }
 
+.pharmacy-hero {
+  position: relative;
+  padding: 16px 16px 26px;
+  overflow: hidden;
+  background:
+    radial-gradient(90% 50% at 100% 0%, rgb(231 194 122 / 16%), transparent 55%),
+    #10281f;
+  color: #f4efe4;
+  font-family: Outfit, "Segoe UI", sans-serif;
+}
+
+.pharmacy-hero h1 {
+  margin: 0 0 8px;
+  font-family: Fraunces, Georgia, serif;
+  font-size: clamp(1.85rem, 8vw, 2.75rem);
+  font-weight: 560;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  animation: hero-rise 0.7s ease both;
+}
+
+.pharmacy-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pharmacy-bar p {
+  margin: 0;
+  font-weight: 700;
+}
+
+.pharmacy-mark {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #1f7a3a;
+  color: #f4efe4;
+}
+
+.pharmacy-mark svg {
+  fill: currentColor;
+}
+
+.pharmacy-chip {
+  margin-left: auto;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgb(244 239 228 / 12%);
+  letter-spacing: 0.04em;
+}
+
+.pharmacy-stage {
+  position: relative;
+  margin-bottom: 16px;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgb(0 0 0 / 32%);
+  animation: hero-rise 0.85s ease 0.08s both;
+}
+
+.pharmacy-main {
+  width: 100%;
+  height: min(46vw, 280px);
+  min-height: 210px;
+  object-fit: cover;
+  object-position: center 62%;
+}
+
+.pharmacy-dish {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: 104px;
+  height: 104px;
+  object-fit: cover;
+  border: 3px solid #f4efe4;
+  border-radius: 18px;
+  box-shadow: 0 12px 24px rgb(0 0 0 / 35%);
+  animation: dish-float 5.5s ease-in-out 1s infinite;
+}
+
+.pharmacy-kicker {
+  margin: 0 0 6px;
+  color: #e7c27a;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.pharmacy-lead {
+  margin: 0;
+  max-width: 36rem;
+  color: rgb(244 239 228 / 86%);
+  font-size: 1.02rem;
+  line-height: 1.5;
+}
+
+.pharmacy-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  margin: 14px 0 0;
+}
+
+.pharmacy-price strong {
+  font-family: Fraunces, Georgia, serif;
+  font-size: 2rem;
+  font-weight: 640;
+  letter-spacing: -0.03em;
+}
+
+.pharmacy-price span {
+  color: rgb(244 239 228 / 72%);
+  font-size: 13px;
+}
+
+.pharmacy-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  padding-right: 68px;
+}
+
+.pharmacy-primary,
+.pharmacy-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pharmacy-primary {
+  flex: 1;
+  border: 0;
+  background: #e7c27a;
+  color: #1b2418;
+  box-shadow: 0 10px 24px rgb(231 194 122 / 22%);
+}
+
+.pharmacy-secondary {
+  padding: 0 16px;
+  border: 1px solid rgb(244 239 228 / 35%);
+  color: #f4efe4;
+  background: transparent;
+}
+
+.pharmacy-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pharmacy-trust li {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgb(244 239 228 / 8%);
+  color: rgb(244 239 228 / 88%);
+  font-size: 12px;
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes dish-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pharmacy-hero h1,
+  .pharmacy-stage,
+  .pharmacy-dish {
+    animation: none;
+  }
+}
+
 .hero img {
   width: 100%;
   height: auto;
