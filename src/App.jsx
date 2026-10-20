@@ -214,23 +214,16 @@ export default function App() {
               <rect x="3" y="10" width="18" height="4" rx="1" />
             </svg>
           </span>
-          <p>Pharmacy counter</p>
+          <p>Our pharmacy</p>
           <span className="pharmacy-chip">Free delivery</span>
         </div>
         <div className="pharmacy-stage">
           <img
             className="pharmacy-main"
             src="/images/hero.jpg"
-            alt="Kinoki boxes and open pads on a wooden pharmacy counter, with stocked glass shelves and a green cross behind them."
-            width="1200"
-            height="900"
-          />
-          <img
-            className="pharmacy-dish"
-            src="/images/hero-dish.jpg"
-            alt="Three Kinoki cleansing pads on a glass dish."
-            width="640"
-            height="640"
+            alt="A pharmacist in a bright pharmacy holding a Kinoki box, with colorful shelves and a green cross behind her."
+            width="900"
+            height="1200"
           />
         </div>
         <p className="pharmacy-kicker">Cleansing detox foot pads</p>
@@ -523,14 +516,12 @@ function Reviews() {
   return (
     <section className="reviews" aria-labelledby="reviews-title">
       <h2 id="reviews-title">What people are saying</h2>
-      <p className="reviews-intro">Straight from customers who ordered Kinoki.</p>
+      <p className="reviews-intro">Messages from people who ordered a box.</p>
       <ul>
         {REVIEWS.map((review) => (
           <li key={review.name}>
             <div className="review-head">
-              <span className="avatar" aria-hidden="true">
-                {review.name.slice(0, 1)}
-              </span>
+              <img className="avatar" src={review.photo} alt="" width="52" height="52" />
               <div>
                 <p className="reviewer">{review.name}</p>
                 <p className="review-note">{review.note}</p>

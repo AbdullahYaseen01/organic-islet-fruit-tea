@@ -66,12 +66,13 @@ p {
 
 .pharmacy-hero {
   position: relative;
-  padding: 16px 16px 26px;
+  padding: 14px 14px 22px;
   overflow: hidden;
   background:
-    radial-gradient(90% 50% at 100% 0%, rgb(231 194 122 / 16%), transparent 55%),
-    #10281f;
-  color: #f4efe4;
+    radial-gradient(80% 40% at 0% 0%, #ffe1c4, transparent 60%),
+    radial-gradient(70% 40% at 100% 0%, #c9f3d8, transparent 55%),
+    #fff8f2;
+  color: #163026;
   font-family: Outfit, "Segoe UI", sans-serif;
 }
 
@@ -106,8 +107,8 @@ p {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: #1f7a3a;
-  color: #f4efe4;
+  background: #16a34a;
+  color: #fff;
 }
 
 .pharmacy-mark svg {
@@ -116,9 +117,10 @@ p {
 
 .pharmacy-chip {
   margin-left: auto;
-  padding: 4px 8px;
+  padding: 4px 10px;
   border-radius: 999px;
-  background: rgb(244 239 228 / 12%);
+  background: #ff8a00;
+  color: #fff;
   letter-spacing: 0.04em;
 }
 
@@ -127,34 +129,20 @@ p {
   margin-bottom: 16px;
   border-radius: 22px;
   overflow: hidden;
-  box-shadow: 0 18px 40px rgb(0 0 0 / 32%);
+  box-shadow: 0 16px 36px rgb(22 80 48 / 18%);
   animation: hero-rise 0.85s ease 0.08s both;
 }
 
 .pharmacy-main {
   width: 100%;
-  height: min(46vw, 280px);
-  min-height: 210px;
+  height: 460px;
   object-fit: cover;
-  object-position: center 62%;
-}
-
-.pharmacy-dish {
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  width: 104px;
-  height: 104px;
-  object-fit: cover;
-  border: 3px solid #f4efe4;
-  border-radius: 18px;
-  box-shadow: 0 12px 24px rgb(0 0 0 / 35%);
-  animation: dish-float 5.5s ease-in-out 1s infinite;
+  object-position: center 18%;
 }
 
 .pharmacy-kicker {
   margin: 0 0 6px;
-  color: #e7c27a;
+  color: #0f9f6e;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -164,7 +152,7 @@ p {
 .pharmacy-lead {
   margin: 0;
   max-width: 36rem;
-  color: rgb(244 239 228 / 86%);
+  color: #3d5248;
   font-size: 1.02rem;
   line-height: 1.5;
 }
@@ -182,10 +170,11 @@ p {
   font-size: 2rem;
   font-weight: 640;
   letter-spacing: -0.03em;
+  color: #e25b16;
 }
 
 .pharmacy-price span {
-  color: rgb(244 239 228 / 72%);
+  color: #5c6f66;
   font-size: 13px;
 }
 
@@ -210,16 +199,16 @@ p {
 .pharmacy-primary {
   flex: 1;
   border: 0;
-  background: #e7c27a;
-  color: #1b2418;
-  box-shadow: 0 10px 24px rgb(231 194 122 / 22%);
+  background: #ff8a00;
+  color: #fff;
+  box-shadow: 0 10px 24px rgb(255 138 0 / 28%);
 }
 
 .pharmacy-secondary {
   padding: 0 16px;
-  border: 1px solid rgb(244 239 228 / 35%);
-  color: #f4efe4;
-  background: transparent;
+  border: 1px solid #16a34a;
+  color: #0f7a38;
+  background: #fff;
 }
 
 .pharmacy-trust {
@@ -234,9 +223,20 @@ p {
 .pharmacy-trust li {
   padding: 6px 10px;
   border-radius: 999px;
-  background: rgb(244 239 228 / 8%);
-  color: rgb(244 239 228 / 88%);
+  background: #e7f8ee;
+  color: #0f6b3c;
   font-size: 12px;
+  font-weight: 700;
+}
+
+.pharmacy-trust li:nth-child(2) {
+  background: #fff0e4;
+  color: #c2410c;
+}
+
+.pharmacy-trust li:nth-child(3) {
+  background: #e7f1ff;
+  color: #1d4e89;
 }
 
 @keyframes hero-rise {
@@ -262,8 +262,7 @@ p {
 
 @media (prefers-reduced-motion: reduce) {
   .pharmacy-hero h1,
-  .pharmacy-stage,
-  .pharmacy-dish {
+  .pharmacy-stage {
     animation: none;
   }
 }
@@ -436,7 +435,7 @@ p {
 
 .reviews {
   padding: 8px 14px 22px;
-  background: linear-gradient(#fff8ee, #fff);
+  background: linear-gradient(#e7f8ee, #fff8f2 40%, #fff);
   text-align: center;
 }
 
@@ -460,37 +459,29 @@ p {
 }
 
 .reviews li {
-  padding: 14px 14px 12px;
-  border: 1px solid #f0e2c8;
+  padding: 12px;
+  border: 0;
   border-radius: 18px;
   background: #fff;
-  box-shadow: 0 8px 20px rgb(90 60 10 / 6%);
+  box-shadow: 0 8px 20px rgb(22 80 48 / 8%);
 }
 
 .review-head {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .avatar {
-  display: grid;
-  place-items: center;
-  flex: 0 0 40px;
-  width: 40px;
-  height: 40px;
+  flex: 0 0 52px;
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
   border-radius: 50%;
-  background: #1f7a3a;
-  color: #fff;
-  font-weight: 800;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px #16a34a;
 }
-
-.reviews li:nth-child(2) .avatar { background: #c47b12; }
-.reviews li:nth-child(3) .avatar { background: #1d4e89; }
-.reviews li:nth-child(4) .avatar { background: #8a3d55; }
-.reviews li:nth-child(5) .avatar { background: #2f6f62; }
-.reviews li:nth-child(6) .avatar { background: #6b4c2a; }
 
 .stars {
   margin: 0 0 0 auto;
@@ -500,10 +491,10 @@ p {
 }
 
 .reviews blockquote {
-  margin: 0;
-  padding: 12px 12px 12px 14px;
-  border-radius: 4px 14px 14px 14px;
-  background: #fff8ee;
+  margin: 0 0 0 62px;
+  padding: 12px 14px;
+  border-radius: 4px 16px 16px 16px;
+  background: #f3fff7;
   font-size: 15px;
   line-height: 1.55;
 }
