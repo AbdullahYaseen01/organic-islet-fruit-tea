@@ -214,7 +214,7 @@ export default function App() {
       <section className="hero" aria-label="Product photo">
         <img
           src="/images/hero.jpg"
-          alt="A woman holding a mint-green box of Mild Care Foot Pads toward the camera."
+          alt="A woman holding a Kinoki Cleansing Detox Foot Pads box toward the camera."
           width="750"
           height="750"
         />
@@ -243,7 +243,7 @@ export default function App() {
           </li>
           <li>
             <CheckIcon />
-            Herbal and gentle
+            Cleansing detox pads
           </li>
           <li>
             <CheckIcon />
@@ -560,8 +560,8 @@ function GuaranteeBanner() {
       </div>
       <p className="banner-headline">Order and we deliver it free</p>
       <figcaption>
-        <span className="protect-mark">Herbal pad</span>
-        100% herbal and gentle ingredients, 10 pieces in each box
+        <span className="protect-mark">Kinoki</span>
+        Cleansing detox foot pads, 10 pieces in each box
       </figcaption>
     </figure>
   );
@@ -585,12 +585,11 @@ function SalesBanner() {
 
 function BenefitsBanner() {
   const items = [
-    ["Deep cleansing", "Marketed as a detox foot patch that absorbs impurities through the sole."],
-    ["Circulation and metabolism", "The box says it improves blood circulation and metabolism."],
-    ["Fluids and toxins", "Described as removing excess fluids and toxins."],
-    ["Fatigue and stress", "Described as relieving fatigue and stress."],
-    ["Sleep and relaxation", "Described as promoting healthy sleep and relaxation."],
-    ["Pain and swelling", "Described as helping relieve pain and swelling."],
+    ["Cleansing detox pads", "White adhesive pads made to sit on the soles."],
+    ["Cleanse and energize", "The box says cleanse and energize your body."],
+    ["Worn while you rest", "Peel the pad, press it on the sole, and leave it on overnight."],
+    ["10 pieces", "Each Kinoki box contains 10 pads."],
+    ["Free delivery", "Every box in this offer is delivered free."],
   ];
   return (
     <section className="benefits" aria-label="What the foot pad packaging says">
@@ -608,13 +607,13 @@ function BenefitsBanner() {
 }
 
 function QuestionBanner() {
-  return <p className="red-banner">This patch can absorb dirt on your body</p>;
+  return <p className="red-banner">Cleanse and energize your body</p>;
 }
 
 function ComplicationBanner() {
   return (
     <p className="yellow-banner">
-      An affordable Ayurvedic remedy for <mark>obesity and impurities in the body</mark>
+      Kinoki pads for the soles — <mark>10 pieces in every box</mark>
     </p>
   );
 }
@@ -624,7 +623,7 @@ function DailyCupBanner() {
     <section className="daily-cup">
       <p>Place it on the sole. Leave it on while you rest.</p>
       <p>
-        Peel the white pad, press the <mark>dark herbal center</mark> to the sole, and remove it in the morning.
+        Peel the white pad, press the <mark>center onto the sole</mark>, and remove it in the morning.
       </p>
       <p>Your body will thank you.</p>
     </section>
@@ -633,10 +632,9 @@ function DailyCupBanner() {
 
 function ProductSpecs() {
   const rows = [
-    ["Product name", "Mild Care Foot Pads"],
-    ["Type", "Deep-cleansing detox foot patch"],
+    ["Product name", "Kinoki Cleansing Detox Foot Pads"],
+    ["Type", "Cleansing detox foot pads"],
     ["Contents", "10 pieces per box"],
-    ["Formula", "100% herbal and gentle ingredients"],
     ["How to use", "Stick the pad on the sole and leave it on while you rest"],
     ["Prices", "1 box AED 50, 2 boxes AED 80, 3 boxes AED 99"],
   ];
@@ -659,7 +657,7 @@ function ProductSpecs() {
 function OriginBanner() {
   return (
     <p className="origin-bar">
-      Mild Care Foot Pads — <mark>deep-cleansing detoxify foot patch</mark>
+      Kinoki — <mark>Cleansing Detox Foot Pads</mark>
     </p>
   );
 }

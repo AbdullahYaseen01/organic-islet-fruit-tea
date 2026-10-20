@@ -1,12 +1,12 @@
-export const SHORT_NAME = "Mild Care Foot Pads";
+export const SHORT_NAME = "Kinoki Cleansing Detox Foot Pads";
 
-export const HEADLINE = "Mild Care Foot Pads";
+export const HEADLINE = "Kinoki Cleansing Detox Foot Pads";
 
 export const LEAD =
-  "A deep-cleansing herbal foot patch. Press it on the sole before you rest. Each box has 10 pieces, and delivery is free.";
+  "Stick a pad on each sole before you rest. The box says cleanse and energize your body. Each box has 10 pieces, and delivery is free.";
 
 export const PRODUCT_NAME =
-  "Mild Care Foot Pads. The packaging says this detox foot patch quickly absorbs toxins and impurities, with 100% herbal and gentle ingredients. It is described as supporting circulation and metabolism, easing fatigue, and helping you rest. 10 pieces per box.";
+  "Kinoki Cleansing Detox Foot Pads. White adhesive pads for the soles, sold in boxes of 10. The packaging says cleanse and energize your body.";
 
 export const HERO_PRICE = "AED 50.00";
 export const HERO_OLD_PRICE = "";
@@ -36,7 +36,7 @@ export const REVIEWS = [
   {
     name: "Nadia",
     stars: 5,
-    text: "I stick the pad on before bed. It stays put, and it peels off easily in the morning.",
+    text: "I stick the Kinoki pad on before bed. It stays put, and it peels off easily in the morning.",
   },
   {
     name: "Omar",
@@ -46,12 +46,12 @@ export const REVIEWS = [
   {
     name: "Lina",
     stars: 4,
-    text: "It feels gentle on the skin. I liked that the box describes the formula as herbal.",
+    text: "The white pad is simple to place on the sole. The box is clearly labeled Kinoki.",
   },
   {
     name: "Hassan",
     stars: 5,
-    text: "I took the two-box offer. The pads are simple to use and the price for 20 pieces made sense.",
+    text: "I took the two-box offer. The pads are easy to use and the price for 20 pieces made sense.",
   },
 ];
 
@@ -59,57 +59,47 @@ export const GALLERY = [
   {
     type: "image",
     src: "/images/desc/hands-product.jpg",
-    alt: "Hands holding a Mild Care Foot Pads box and one adhesive pad.",
+    alt: "Hands holding a Kinoki Cleansing Detox Foot Pads box and one adhesive pad.",
   },
   {
     type: "image",
     src: "/images/desc/two-boxes.jpg",
-    alt: "Two boxes of Mild Care Foot Pads on a cream background.",
+    alt: "Two Kinoki Cleansing Detox Foot Pads boxes on a pale background.",
   },
   {
     type: "image",
     src: "/images/desc/boxes-studio.jpg",
-    alt: "A single Mild Care Foot Pads box in a studio shot.",
+    alt: "A single Kinoki box in a studio shot.",
   },
   {
     type: "image",
     src: "/images/desc/pad-closeup.jpg",
-    alt: "Close-up of the white foot pad and its dark herbal center.",
+    alt: "Close-up of a white Kinoki foot pad with a brown center.",
   },
   {
     type: "image",
     src: "/images/desc/apply-sole.jpg",
-    alt: "The pad being pressed onto the sole of a foot.",
+    alt: "A Kinoki pad being pressed onto the sole of a foot.",
   },
   {
     type: "image",
-    src: "/images/desc/herbs-box.jpg",
-    alt: "Herbal ingredients arranged with a Mild Care Foot Pads box.",
+    src: "/images/desc/soles.jpg",
+    alt: "Both soles wearing white Kinoki detox pads.",
   },
   {
     type: "image",
     src: "/images/desc/how-to-use.jpg",
-    alt: "Three steps for peeling, placing, and removing the pad.",
+    alt: "Three steps for peeling, pressing, and removing the Kinoki pad.",
   },
   {
     type: "image",
     src: "/images/desc/used-pad.jpg",
-    alt: "A used foot pad showing a darkened center.",
+    alt: "A used Kinoki pad next to a fresh pad.",
   },
   {
     type: "image",
     src: "/images/desc/morning-tray.jpg",
-    alt: "A morning tray with the foot-pad box and fresh pads.",
-  },
-  {
-    type: "video",
-    src: "/videos/foot-pads-overview.mp4",
-    alt: "Video showing how the foot pad is applied.",
-  },
-  {
-    type: "video",
-    src: "/videos/foot-pads-offer.mp4",
-    alt: "Video showing the AED 50, 80, and 99 box prices.",
+    alt: "A morning tray with a Kinoki box and fresh pads.",
   },
 ];
 
