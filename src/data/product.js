@@ -144,6 +144,30 @@ export const GALLERY = [
   },
 ];
 
+export const NOTICES = [
+  "Someone from Riyadh, Saudi Arabia just purchased this product.",
+  "Someone from Jeddah, Saudi Arabia just purchased 8 boxes.",
+  "Someone from Dammam, Saudi Arabia just purchased this product.",
+  "Someone from Mecca, Saudi Arabia just purchased 4 boxes.",
+  "Someone from Medina, Saudi Arabia just purchased this product.",
+  "Someone from Khobar, Saudi Arabia just purchased 8 boxes.",
+  "Someone from Taif, Saudi Arabia just purchased this product.",
+  "Someone from Abha, Saudi Arabia just purchased 4 boxes.",
+];
+
+export const RETURN_POLICY = [
+  "Changed your mind? Contact us within 7 days of receiving the parcel and we will arrange a return or exchange.",
+  "The box should be unused and still in its original packing.",
+  "If a box arrives damaged, or the contents do not match your order, contact us and we will replace it.",
+  "Message us on LINE and we will reply with the next step. Delivery of a replacement is free.",
+];
+
+export const DEMO_ADDRESS = {
+  name: "Safa Care Pharmacy",
+  lines: ["123 King Fahd Road, Al Olaya", "Riyadh 12211", "Saudi Arabia"],
+  note: "Demo address for this presentation. Replace it with the verified business address before launch.",
+};
+
 export function formatPrice(amount) {
   return `SAR ${Number(amount).toFixed(2)}`;
 }

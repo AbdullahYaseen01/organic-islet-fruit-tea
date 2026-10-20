@@ -3,11 +3,14 @@ import { submitOrder } from "./checkout";
 import {
   CERTIFICATES,
   COMBOS,
+  DEMO_ADDRESS,
   GALLERY,
   HEADLINE,
   HERO_PRICE,
+  NOTICES,
   PHARMACY_NAME,
   LEAD,
+  RETURN_POLICY,
   REVIEWS,
   SHORT_NAME,
   formatPrice,
@@ -379,15 +382,26 @@ export default function App() {
         </button>
       </form>
 
+      <OrderConfirm onShop={scrollToOrder} />
+
+      <Returns />
+
       <footer className="site-footer">
+        <p className="demo-note">{DEMO_ADDRESS.note}</p>
+        <address>
+          <strong>{DEMO_ADDRESS.name}</strong>
+          {DEMO_ADDRESS.lines.map((line) => (
+            <span key={line}>{line}</span>
+          ))}
+        </address>
         <p>Copyright © 2024 All Rights Reserved</p>
       </footer>
 
       {showSticky && (
         <div className="sticky-buy">
-          <button type="button" onClick={scrollToOrder}>
-            <CartIcon />
-            Shop now
+          <button type="button" className="order-now" onClick={scrollToOrder}>
+            <span className="order-now-brand">Safa Care</span>
+            <span className="order-now-label">Order now</span>
           </button>
         </div>
       )}
@@ -408,6 +422,49 @@ export default function App() {
         </div>
       )}
     </>
+  );
+}
+
+function OrderConfirm({ onShop }) {
+  const loop = [...NOTICES, ...NOTICES];
+  return (
+    <section className="order-confirm" aria-labelledby="confirm-title">
+      <p id="confirm-title" className="warm-reminder">
+        Warm reminder. Once your address is filled in, tap Confirm placing an order. That counts as a complete order.
+      </p>
+      <button type="submit" form="order-box" className="confirm-order">
+        <span aria-hidden="true">🪙</span>
+        Confirm placing an order
+        <span aria-hidden="true">🪙</span>
+      </button>
+      <button type="button" className="notice-shop" onClick={onShop}>
+        <CartIcon />
+        Shop now
+      </button>
+      <div className="purchase-notices">
+        <p className="demo-note">Demo notices for this presentation.</p>
+        <div className="notice-window">
+          <ul className="notice-track">
+            {loop.map((text, index) => (
+              <li key={`${text}-${index}`}>{text}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Returns() {
+  return (
+    <section className="returns" aria-labelledby="returns-title">
+      <h2 id="returns-title">What you need to know about returns and exchanges</h2>
+      <ol>
+        {RETURN_POLICY.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ol>
+    </section>
   );
 }
 
