@@ -516,6 +516,58 @@ p {
   margin-top: 16px;
 }
 
+.certificates {
+  padding: 8px 14px 22px;
+  background: #fff;
+  text-align: center;
+}
+
+.certificates h2 {
+  padding: 16px 8px 4px;
+  font-size: 1.45rem;
+}
+
+.certificates-intro {
+  margin-bottom: 14px;
+  color: #666;
+}
+
+.certificates ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.certificates li {
+  margin: 0;
+}
+
+.certificates img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  background: #f7f1e4;
+  box-shadow: 0 8px 20px rgb(22 80 48 / 10%);
+}
+
+.certificates li p {
+  margin-top: 8px;
+  color: #163026;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+@media (max-width: 520px) {
+  .certificates ul {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin-inline: auto;
+  }
+}
+
 .banner {
   margin: 0;
 }

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { submitOrder } from "./checkout";
 import {
+  CERTIFICATES,
   COMBOS,
   GALLERY,
   HEADLINE,
@@ -229,6 +230,8 @@ export default function App() {
 
       <Reviews />
 
+      <Certificates />
+
       <section className="wear-banner">
         <img src="/images/desc/pads-on-soles.jpg" alt="Both soles wearing Kinoki foot pads." width="900" height="900" />
         <button type="button" className="shop-now" onClick={scrollToOrder}>
@@ -405,6 +408,23 @@ export default function App() {
         </div>
       )}
     </>
+  );
+}
+
+function Certificates() {
+  return (
+    <section className="certificates" aria-labelledby="certificates-title">
+      <h2 id="certificates-title">Certificates</h2>
+      <p className="certificates-intro">Two sample documents for this page.</p>
+      <ul>
+        {CERTIFICATES.map((item) => (
+          <li key={item.src}>
+            <img src={item.src} alt={item.alt} width="640" height="840" />
+            <p>{item.title}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }
 
