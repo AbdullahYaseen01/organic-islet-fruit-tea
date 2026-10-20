@@ -677,6 +677,15 @@ p {
   background: #7dbe4a;
 }
 
+.benefits img,
+.benefits video {
+  width: calc(100% + 36px);
+  max-width: none;
+  height: auto;
+  margin: 16px -18px 0;
+  background: #fff;
+}
+
 .benefits ol {
   margin: 18px 0 0;
   padding: 0;

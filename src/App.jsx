@@ -581,15 +581,25 @@ function SalesBanner() {
 
 function BenefitsBanner() {
   const items = [
-    ["Cleansing detox pads", "White adhesive pads made to sit on the soles."],
-    ["Cleanse and energize", "The box says cleanse and energize your body."],
-    ["Worn while you rest", "Peel the pad, press it on the sole, and leave it on overnight."],
-    ["10 pieces", "Each Kinoki box contains 10 pads."],
-    ["Free delivery", "Every box in this offer is delivered free."],
+    ["Suck", "Bamboo vinegar extract, shown absorbing impurities."],
+    ["Row", "Cyclic adsorption of impurities."],
+    ["Clear", "Described as cleansing body impurities."],
+    ["On the sole", "The pad sits on the sole while you rest."],
   ];
   return (
-    <section className="benefits" aria-label="What the foot pad packaging says">
-      <h3>What the packaging says</h3>
+    <section className="benefits" aria-label="Benefits">
+      <h3>Benefits</h3>
+      <img src="/images/desc/benefit-steps.jpg" alt="Three panels labeled Suck, Row, and Clear." />
+      <img src="/images/desc/benefit-packs.jpg" alt="Two Kinoki packs next to four white foot pads." />
+      <img src="/images/desc/benefit-soles.jpg" alt="Both soles wearing Kinoki foot pads." />
+      <img src="/images/desc/benefit-map.jpg" alt="Product display of the soles with labeled points." />
+      <video
+        src="/videos/benefit-video.mp4"
+        controls
+        playsInline
+        preload="metadata"
+        aria-label="Benefit video for Kinoki foot pads"
+      />
       <ol>
         {items.map(([title, copy]) => (
           <li key={title}>
