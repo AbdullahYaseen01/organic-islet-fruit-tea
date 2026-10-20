@@ -181,7 +181,7 @@ export default function App() {
         </p>
         <div className="pharmacy-actions">
           <button type="button" className="pharmacy-primary" ref={heroCtaRef} onClick={scrollToOrder}>
-            Inquire now
+            Shop now
           </button>
           <a className="pharmacy-secondary" href="https://lin.ee/QXp84HX" target="_blank" rel="noreferrer">
             Message us
@@ -230,6 +230,13 @@ export default function App() {
 
       <Reviews />
 
+      <section className="wear-banner">
+        <img src="/images/desc/pads-on-soles.jpg" alt="Both soles wearing Kinoki foot pads." width="900" height="900" />
+        <button type="button" className="shop-now" onClick={scrollToOrder}>
+          Shop now
+        </button>
+      </section>
+
       <form id="order-box" ref={orderRef} className="order" onSubmit={onSubmit} noValidate>
         <h2>Leave your details</h2>
         <p className="order-note">Choose a box, then send your name and phone. Delivery is free.</p>
@@ -265,43 +272,63 @@ export default function App() {
           <strong>{formatPrice(combo.price)}</strong>
         </div>
 
-        <label className="field">
-          <span className="field-label">
-            <abbr className="req" title="required">
-              *
-            </abbr>
-            Name
-          </span>
-          <input
-            ref={nameRef}
-            name="name"
-            autoComplete="name"
-            placeholder="Please enter your name"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            required
-          />
-        </label>
+        <div className="lead-fields">
+          <label className="field">
+            <span className="field-label">
+              <abbr className="req" title="required">
+                *
+              </abbr>
+              Name
+            </span>
+            <input
+              ref={nameRef}
+              name="name"
+              autoComplete="name"
+              placeholder="Please enter your name"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+              required
+            />
+          </label>
 
-        <label className="field">
-          <span className="field-label">
-            <abbr className="req" title="required">
-              *
-            </abbr>
-            Mobile
-          </span>
-          <input
-            ref={phoneRef}
-            name="tel"
-            type="tel"
-            inputMode="tel"
-            autoComplete="tel"
-            placeholder="Please enter your mobile number"
-            value={phone}
-            onChange={(event) => setPhone(event.target.value)}
-            required
-          />
-        </label>
+          <label className="field">
+            <span className="field-label">
+              <abbr className="req" title="required">
+                *
+              </abbr>
+              Mobile number
+            </span>
+            <input
+              ref={phoneRef}
+              name="tel"
+              type="tel"
+              inputMode="tel"
+              autoComplete="tel"
+              placeholder="Please enter your mobile number"
+              value={phone}
+              onChange={(event) => setPhone(event.target.value)}
+              required
+            />
+          </label>
+
+          <label className="field">
+            <span className="field-label">
+              <abbr className="req" title="required">
+                *
+              </abbr>
+              City
+            </span>
+            <input
+              ref={cityRef}
+              name="city"
+              autoComplete="address-level2"
+              placeholder="Type your city"
+              value={city}
+              onChange={(event) => setCity(event.target.value)}
+              required
+            />
+          </label>
+        </div>
 
         <fieldset className="delivery">
           <legend>
@@ -326,24 +353,6 @@ export default function App() {
         </fieldset>
 
         <p className="delivery-note">{note}</p>
-
-        <label className="field">
-          <span className="field-label">
-            <abbr className="req" title="required">
-              *
-            </abbr>
-            City
-          </span>
-          <input
-            ref={cityRef}
-            name="city"
-            autoComplete="address-level2"
-            placeholder="Type your city"
-            value={city}
-            onChange={(event) => setCity(event.target.value)}
-            required
-          />
-        </label>
 
         <label className="field">
           <span className="field-label">
@@ -386,7 +395,7 @@ export default function App() {
         <div className="sticky-buy">
           <button type="button" onClick={scrollToOrder}>
             <CartIcon />
-            Send my details
+            Shop now
           </button>
         </div>
       )}

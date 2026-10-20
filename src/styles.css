@@ -871,6 +871,65 @@ p {
   font-weight: 400;
 }
 
+.wear-banner {
+  padding: 16px 14px 8px;
+  background: #fff;
+  text-align: center;
+}
+
+.wear-banner img {
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.shop-now {
+  width: calc(100% - 28px);
+  height: 52px;
+  margin: 14px 14px 8px;
+  border: 0;
+  border-radius: 999px;
+  background: #ff8a00;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 800;
+  box-shadow: 0 10px 24px rgb(255 138 0 / 28%);
+}
+
+.lead-fields {
+  margin: 12px 12px 4px;
+  padding: 14px 12px 2px;
+  border: 2px solid #ff8a00;
+  border-radius: 16px;
+  background: #fff8f2;
+}
+
+.lead-fields .field {
+  display: block;
+  margin: 0 0 12px;
+  padding: 0;
+  border: 0;
+}
+
+.lead-fields .field-label {
+  display: block;
+  width: auto;
+  margin-bottom: 6px;
+  color: #163026;
+  font-size: 16px;
+}
+
+.lead-fields input {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 12px;
+  border: 2px solid #163026;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 17px;
+}
+
 .field,
 .delivery {
   margin: 0 15px 5px;
