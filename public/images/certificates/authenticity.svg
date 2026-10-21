@@ -4,7 +4,8 @@
   <rect x="16" y="16" width="608" height="808" fill="none" stroke="#1f6b45" stroke-width="6"/>
   <rect x="32" y="32" width="576" height="776" fill="none" stroke="#c4a35a" stroke-width="1.5"/>
   <path d="M48 48h28v8H56v20h-8V48zm516 0h28v28h-8V56h-20v-8zM48 764h8v20h20v8H48v-28zm516 0h28v28h-28v-8h20v-20h-20z" fill="#1f6b45"/>
-  <text x="320" y="92" text-anchor="middle" fill="#1f6b45" font-family="Georgia, serif" font-size="15" letter-spacing="6">SAFA CARE PHARMACY</text>
+  <text x="320" y="78" text-anchor="middle" fill="#1f6b45" font-family="Georgia, serif" font-size="15" letter-spacing="3">SARA AL-FAHAD</text>
+  <text x="320" y="102" text-anchor="middle" fill="#1f6b45" font-family="Georgia, serif" font-size="15" letter-spacing="3">CARE PHARMACY</text>
   <text x="320" y="168" text-anchor="middle" fill="#163026" font-family="Georgia, serif" font-size="40">Certificate</text>
   <text x="320" y="214" text-anchor="middle" fill="#163026" font-family="Georgia, serif" font-size="40">of Authenticity</text>
   <line x1="160" y1="246" x2="480" y2="246" stroke="#c4a35a" stroke-width="1"/>
@@ -12,12 +13,12 @@
   <text x="320" y="348" text-anchor="middle" fill="#163026" font-family="Georgia, serif" font-size="26">Kinoki Foot Pads</text>
   <text x="320" y="386" text-anchor="middle" fill="#163026" font-family="Georgia, serif" font-size="22">match the product shown</text>
   <text x="320" y="440" text-anchor="middle" fill="#5c5346" font-family="Georgia, serif" font-size="17">White pad, dark center, box of 10</text>
-  <text x="320" y="468" text-anchor="middle" fill="#5c5346" font-family="Georgia, serif" font-size="17">Sold by Safa Care Pharmacy</text>
+  <text x="320" y="468" text-anchor="middle" fill="#5c5346" font-family="Georgia, serif" font-size="16">Sold by SARA AL-FAHAD CARE PHARMACY</text>
   <circle cx="320" cy="560" r="62" fill="#163026"/>
   <circle cx="320" cy="560" r="52" fill="none" stroke="#e7c56a" stroke-width="2"/>
   <text x="320" y="566" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="15">Authentic</text>
   <text x="120" y="700" fill="#5c5346" font-family="Georgia, serif" font-size="15">No. SC-AU-2088</text>
   <text x="120" y="726" fill="#5c5346" font-family="Georgia, serif" font-size="15">4 April 2026</text>
-  <text x="400" y="700" fill="#163026" font-family="Georgia, serif" font-size="20" font-style="italic">Safa Care</text>
-  <line x1="400" y1="712" x2="530" y2="712" stroke="#1f6b45" stroke-width="1"/>
+  <text x="380" y="700" fill="#163026" font-family="Georgia, serif" font-size="16" font-style="italic">Sara Al-Fahad</text>
+  <line x1="380" y1="712" x2="560" y2="712" stroke="#1f6b45" stroke-width="1"/>
 </svg>
