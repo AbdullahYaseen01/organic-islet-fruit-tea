@@ -8,7 +8,7 @@ export const LEAD =
 export const PRODUCT_NAME =
   "Kinoki Cleansing Detox Foot Pads. White adhesive pads for the soles, sold in boxes of 10. The packaging says cleanse and energize your body.";
 
-export const PHARMACY_NAME = "Safa Care Pharmacy";
+export const PHARMACY_NAME = "SARA AL-FAHAD CARE PHARMACY";
 
 export const HERO_PRICE = "SAR 119";
 export const HERO_OLD_PRICE = "";
@@ -145,14 +145,54 @@ export const GALLERY = [
 ];
 
 export const NOTICES = [
-  "Someone from Riyadh, Saudi Arabia just purchased this product.",
-  "Someone from Jeddah, Saudi Arabia just purchased 8 boxes.",
-  "Someone from Dammam, Saudi Arabia just purchased this product.",
-  "Someone from Mecca, Saudi Arabia just purchased 4 boxes.",
-  "Someone from Medina, Saudi Arabia just purchased this product.",
-  "Someone from Khobar, Saudi Arabia just purchased 8 boxes.",
-  "Someone from Taif, Saudi Arabia just purchased this product.",
-  "Someone from Abha, Saudi Arabia just purchased 4 boxes.",
+  "Aisha from Buraydah, Saudi Arabia just purchased 8 boxes.",
+  "Fatimah from Najran, Saudi Arabia just purchased 8 boxes.",
+  "Maryam from Abha, Saudi Arabia just purchased 4 boxes.",
+  "Khadija from Hail, Saudi Arabia just purchased 8 boxes.",
+  "Sara from Hofuf, Saudi Arabia just purchased 4 boxes.",
+  "Zainab from Taif, Saudi Arabia just purchased 4 boxes.",
+  "Lina from Al Qunfudhah, Saudi Arabia just purchased 8 boxes.",
+  "Osama Al-Ansi from Riyadh, Saudi Arabia just purchased 8 boxes.",
+  "Rajab from Makkah, Saudi Arabia just purchased 4 boxes.",
+  "Jahngir Hossain from Makkah, Saudi Arabia just purchased 8 boxes.",
+  "Al Amin from Makkah, Saudi Arabia just purchased 4 boxes.",
+  "MAFJUL lSLAM from Hail, Saudi Arabia just purchased 4 boxes.",
+  "Nadim afrad from Riyadh, Saudi Arabia just purchased 8 boxes.",
+  "Dana from Abu Areish, Saudi Arabia just purchased 8 boxes.",
+  "Reem from Kharj, Saudi Arabia just purchased 4 boxes.",
+  "Noura from Jeddah, Saudi Arabia just purchased 8 boxes.",
+  "Tala from Dammam, Saudi Arabia just purchased 4 boxes.",
+  "Leen from Al Husima, Saudi Arabia just purchased 4 boxes.",
+  "Yara from Jeddah, Saudi Arabia just purchased 8 boxes.",
+  "Amal from Riyadh, Saudi Arabia just purchased 8 boxes.",
+  "Dalia from Riyadh, Saudi Arabia just purchased 4 boxes.",
+  "Jannah from Riyadh, Saudi Arabia just purchased 8 boxes.",
+  "Layla from Jeddah, Saudi Arabia just purchased 4 boxes.",
+  "Aisha Hassan from Dammam, Saudi Arabia just purchased 4 boxes.",
+  "karim from Abha, Saudi Arabia just purchased 8 boxes.",
+  "Muhammad Usama from Makkah, Saudi Arabia just purchased 8 boxes.",
+  "MD rakib from Riyadh, Saudi Arabia just purchased 4 boxes.",
+  "Mohammed Abu Laila from Jeddah, Saudi Arabia just purchased 8 boxes.",
+  "All hassa khubri from Hofuf, Saudi Arabia just purchased 4 boxes.",
+  "Abullaziz from Riyadh, Saudi Arabia just purchased 4 boxes.",
+  "Anna from Madinah, Saudi Arabia just purchased 8 boxes.",
+  "Mohamed Attia from Riyadh, Saudi Arabia just purchased 8 boxes.",
+  "Etetye alemu from Riyadh, Saudi Arabia just purchased 4 boxes.",
+  "MOHAMMAD MOBARAK from Jeddah, Saudi Arabia just purchased 8 boxes.",
+  "Abdul Wahab, Salem from Riyadh, Saudi Arabia just purchased 4 boxes.",
+  "Munira from Riyadh, Saudi Arabia just purchased 4 boxes.",
+  "Salma from Doha, Saudi Arabia just purchased 8 boxes.",
+  "Thurayya from Riyadh, Saudi Arabia just purchased 8 boxes.",
+  "Wafa from Riyadh, Saudi Arabia just purchased 4 boxes.",
+  "Cadbi adadn from Jeddah, Saudi Arabia just purchased 8 boxes.",
+  "Mudeda Keffa from Riyadh, Saudi Arabia just purchased 4 boxes.",
+  "Mamun from Najran, Saudi Arabia just purchased 4 boxes.",
+  "Sohel from Hafar Al Batin, Saudi Arabia just purchased 8 boxes.",
+  "Mahroof from Riyadh, Saudi Arabia just purchased 8 boxes.",
+  "Ahmad Hussain from Afif, Saudi Arabia just purchased 4 boxes.",
+  "Ayman Mohammed from Riyadh, Saudi Arabia just purchased 8 boxes.",
+  "Sayeed from Jeddah, Saudi Arabia just purchased 4 boxes.",
+  "Haithem from Riyadh, Saudi Arabia just purchased 4 boxes.",
 ];
 
 export const RETURN_POLICY = [
@@ -163,8 +203,8 @@ export const RETURN_POLICY = [
 ];
 
 export const DEMO_ADDRESS = {
-  name: "Safa Care Pharmacy",
-  lines: ["123 King Fahd Road, Al Olaya", "Riyadh 12211", "Saudi Arabia"],
+  name: "SARA AL-FAHAD CARE PHARMACY",
+  lines: ["Prince Mohammad bin Abdulaziz St, Ash Shati", "Jazan 1282812", "Saudi Arabia"],
 };
 
 export function formatPrice(amount) {

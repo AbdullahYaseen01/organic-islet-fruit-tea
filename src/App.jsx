@@ -168,7 +168,7 @@ export default function App() {
         <p className="pharmacy-lead">{LEAD}</p>
         <p className="pharmacy-price">
           <strong>{HERO_PRICE}</strong>
-          <span>4 boxes · 8 boxes SAR 149</span>
+          <span>4 boxes SAR 119 · 8 boxes SAR 149</span>
         </p>
         <div className="pharmacy-actions">
           <button type="button" className="pharmacy-primary" ref={heroCtaRef} onClick={scrollToOrder}>
@@ -369,7 +369,7 @@ export default function App() {
       {showSticky && (
         <div className="sticky-buy">
           <button type="button" className="order-now" onClick={scrollToOrder}>
-            <span className="order-now-brand">Safa Care</span>
+            <span className="order-now-brand">Sara Al-Fahad</span>
             <span className="order-now-label">Order now</span>
           </button>
         </div>
@@ -411,7 +411,6 @@ function OrderConfirm({ onShop }) {
         Shop now
       </button>
       <div className="purchase-notices">
-        <p className="demo-note">Demo notices for this presentation.</p>
         <div className="notice-window">
           <ul className="notice-track">
             {loop.map((text, index) => (
@@ -513,8 +512,8 @@ function SalesBanner() {
       </p>
       <p className="sales-highlight">8 boxes — the lowest price in the offer</p>
       <p className="sales-pill">
-        <span>4 boxes 119</span>
-        <span>8 boxes 149</span>
+        <span>4 boxes SAR 119</span>
+        <span>8 boxes SAR 149</span>
       </p>
     </figure>
   );

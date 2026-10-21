@@ -23,8 +23,9 @@ body {
   color: var(--ink);
   box-shadow: 0 0 40px rgb(70 48 16 / 12%);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-  font-size: 16px;
-  line-height: 1.4;
+  font-size: 15px;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
 }
 
 img {
@@ -79,10 +80,11 @@ p {
 .pharmacy-hero h1 {
   margin: 0 0 8px;
   font-family: Fraunces, Georgia, serif;
-  font-size: clamp(1.85rem, 8vw, 2.75rem);
+  font-size: clamp(1.5rem, 6.2vw, 2.2rem);
   font-weight: 560;
-  letter-spacing: -0.035em;
-  line-height: 1.02;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  text-wrap: balance;
   animation: hero-rise 0.7s ease both;
 }
 
@@ -91,14 +93,17 @@ p {
   align-items: center;
   gap: 8px;
   margin-bottom: 14px;
-  font-size: 13px;
-  letter-spacing: 0.08em;
+  font-size: 12px;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
 }
 
 .pharmacy-bar p {
   margin: 0;
+  flex: 1;
+  min-width: 0;
   font-weight: 700;
+  line-height: 1.25;
 }
 
 .pharmacy-mark {
@@ -153,8 +158,8 @@ p {
   margin: 0;
   max-width: 36rem;
   color: #3d5248;
-  font-size: 1.02rem;
-  line-height: 1.5;
+  font-size: 15px;
+  line-height: 1.55;
 }
 
 .pharmacy-price {
@@ -175,7 +180,8 @@ p {
 
 .pharmacy-price span {
   color: #5c6f66;
-  font-size: 13px;
+  font-size: 15px;
+  font-weight: 600;
 }
 
 .pharmacy-actions {
@@ -225,7 +231,7 @@ p {
   border-radius: 999px;
   background: #e7f8ee;
   color: #0f6b3c;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
 }
 
@@ -672,14 +678,14 @@ p {
 .sales-pill {
   display: flex;
   justify-content: center;
-  gap: 18px;
+  gap: 12px;
   width: min(560px, 92%);
   margin: 0 auto;
-  padding: 12px 18px;
+  padding: 12px 14px;
   border-radius: 999px;
   background: #e10600;
   color: #fff;
-  font-size: clamp(20px, 5vw, 32px);
+  font-size: clamp(14px, 3.8vw, 20px);
   font-weight: 900;
 }
 
@@ -1235,7 +1241,7 @@ p {
   margin: 0;
   padding: 0;
   list-style: none;
-  animation: notice-scroll 22s linear infinite;
+  animation: notice-scroll 90s linear infinite;
 }
 
 .notice-track li {
@@ -1332,6 +1338,19 @@ p {
 }
 
 @media (max-width: 750px) {
+  body {
+    font-size: 15px;
+  }
+
+  .pharmacy-hero h1 {
+    font-size: 1.55rem;
+  }
+
+  .pharmacy-lead,
+  .pharmacy-price span {
+    font-size: 14px;
+  }
+
   .final-price {
     font-size: 20px;
   }
