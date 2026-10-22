@@ -102,6 +102,13 @@ export default function App() {
     }
 
     setSubmitting(true);
+    if (typeof window.fbq === "function") {
+      window.fbq("track", "Lead", {
+        content_name: SHORT_NAME,
+        value: combo.price,
+        currency: "SAR",
+      });
+    }
     const result = await submitOrder({
       product: SHORT_NAME,
       comboId: combo.id,
