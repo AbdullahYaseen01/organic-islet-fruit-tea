@@ -1077,14 +1077,6 @@ p {
   background-position: 2px -2px;
 }
 
-.ship-seven {
-  background-position: 2px -345px;
-}
-
-.ship-family {
-  background-position: 2px -395px;
-}
-
 .ship.is-selected {
   border-color: var(--accent);
   background-color: var(--accent);
@@ -1093,12 +1085,17 @@ p {
 
 .delivery-note {
   margin: 0 2% 1rem;
-  padding: 0.8rem;
-  border: 1px solid #eed3d7;
+  padding: 10px 12px;
+  border: 1px solid #eee;
   border-radius: 0.2rem;
-  background: #fbeedf;
-  color: #c00;
-  line-height: 1.5rem;
+  background: #fff;
+  text-align: center;
+}
+
+.delivery-note img {
+  width: min(280px, 86%);
+  height: auto;
+  margin: 0 auto;
 }
 
 .place-order {

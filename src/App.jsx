@@ -16,17 +16,7 @@ import {
   formatPrice,
 } from "./data/product";
 
-const HOME_NOTE =
-  "Note: We will deliver the parcel to your home. Please watch for it.";
-const HOME_NOTE_AGAIN =
-  "Note: T-Cat or Hsinchu Logistics will deliver to your home. Leave a message if you want a specific carrier.";
-const STORE_NOTE = "Note: You will need to pick the parcel up yourself.";
-
-const DELIVERIES = [
-  { id: "home", label: "Cash on delivery", icon: "cod" },
-  { id: "seven", label: "7-ELEVEN", icon: "seven" },
-  { id: "family", label: "FamilyMart", icon: "family" },
-];
+const DELIVERIES = [{ id: "home", label: "Cash on delivery", icon: "cod" }];
 
 function CartIcon() {
   return (
@@ -46,8 +36,7 @@ export default function App() {
   const phoneRef = useRef(null);
   const cityRef = useRef(null);
   const [comboIndex, setComboIndex] = useState(1);
-  const [delivery, setDelivery] = useState("home");
-  const [homeClicks, setHomeClicks] = useState(0);
+  const [delivery] = useState("home");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [city, setCity] = useState("");
@@ -56,7 +45,6 @@ export default function App() {
   const [submitting, setSubmitting] = useState(false);
 
   const combo = COMBOS[comboIndex];
-  const isStore = delivery === "seven" || delivery === "family";
 
   useEffect(() => {
     const update = () => {
@@ -87,12 +75,6 @@ export default function App() {
 
   function scrollToOrder() {
     orderRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-
-  function chooseDelivery(next) {
-    setDelivery(next);
-    setCity("");
-    if (next === "home") setHomeClicks((count) => count + 1);
   }
 
   function showMessage(text, field) {
@@ -134,8 +116,6 @@ export default function App() {
     setSubmitting(false);
     setToast(result.message);
   }
-
-  const note = isStore ? STORE_NOTE : homeClicks > 0 ? HOME_NOTE_AGAIN : HOME_NOTE;
 
   return (
     <>
@@ -335,9 +315,8 @@ export default function App() {
               <button
                 key={item.id}
                 type="button"
-                className={delivery === item.id ? `ship ship-${item.icon} is-selected` : `ship ship-${item.icon}`}
-                aria-pressed={delivery === item.id}
-                onClick={() => chooseDelivery(item.id)}
+                className={`ship ship-${item.icon} is-selected`}
+                aria-pressed="true"
               >
                 {item.label}
               </button>
@@ -345,7 +324,9 @@ export default function App() {
           </div>
         </fieldset>
 
-        <p className="delivery-note">{note}</p>
+        <p className="delivery-note">
+          <img src="/images/jt-express.png" alt="J&T Express" width="537" height="98" />
+        </p>
 
         <button type="submit" className="place-order" disabled={submitting}>
           {submitting ? "Checking order…" : "Submit my details"}

@@ -93,6 +93,16 @@ export const GALLERY = [
     alt: "Hands holding a Kinoki Cleansing Detox Foot Pads box and one adhesive pad.",
   },
   {
+    type: "image",
+    src: "/images/desc/before-after-sleep.png",
+    alt: "Before and after photo of feet at night, with Kinoki pads on the soles.",
+  },
+  {
+    type: "image",
+    src: "/images/desc/before-after-body.png",
+    alt: "Kinoki pads on both soles beside before and after photos.",
+  },
+  {
     type: "video",
     src: "/videos/foot-pads-overview.mp4",
     alt: "Video showing the Kinoki foot pad on the sole.",
