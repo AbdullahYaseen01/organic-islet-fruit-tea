@@ -1313,6 +1313,112 @@ p {
   box-shadow: 0 6px 16px rgb(0 0 0 / 22%);
 }
 
+.order-list {
+  min-height: 100vh;
+  padding: 28px 16px 48px;
+  background: #fff8f2;
+  color: #163026;
+  font-family: Outfit, "Segoe UI", sans-serif;
+}
+
+.order-list h1 {
+  margin: 0 0 6px;
+  font-family: Fraunces, Georgia, serif;
+  font-size: 2rem;
+  font-weight: 560;
+}
+
+.order-list > p {
+  margin: 0 0 18px;
+  color: #5c6f66;
+}
+
+.order-lock,
+.order-list-bar {
+  display: flex;
+  gap: 10px;
+  align-items: end;
+}
+
+.order-lock {
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 360px;
+  padding: 16px;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.order-lock label {
+  display: grid;
+  gap: 6px;
+  font-weight: 700;
+}
+
+.order-lock input {
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.order-lock button,
+.order-list-bar button {
+  min-height: 42px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 999px;
+  background: #ff8a00;
+  color: #fff;
+  font-weight: 800;
+}
+
+.order-lock-error {
+  margin: 0;
+  color: #c00;
+  font-weight: 700;
+}
+
+.order-list-bar {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.order-table-wrap {
+  overflow-x: auto;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.order-list table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.order-list th,
+.order-list td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.order-list th {
+  color: #5c6f66;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.order-empty {
+  margin: 0;
+  padding: 16px;
+  border-radius: 16px;
+  background: #fff;
+}
+
 .toast {
   position: fixed;
   z-index: 50;

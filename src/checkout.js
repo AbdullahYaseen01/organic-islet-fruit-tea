@@ -1,14 +1,18 @@
-/**
- * Checkout integration boundary.
- * The reference page posts orders to its own endpoint. This project does not
- * call that endpoint, and it does not record a payment.
- * Replace `submitOrder` with your order API when you have one.
- */
-export async function submitOrder() {
+export async function submitOrder(order) {
+  const response = await fetch("/api/orders", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(order),
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    return {
+      ok: false,
+      message: data.message || "Could not save the order. Please try again.",
+    };
+  }
   return {
-    ok: false,
-    code: "not_configured",
-    message:
-      "No order was placed. Checkout is not connected, so nothing was sent for delivery or payment.",
+    ok: true,
+    message: data.message || "Order received. We will contact you to arrange cash on delivery.",
   };
 }
