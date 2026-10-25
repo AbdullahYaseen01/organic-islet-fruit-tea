@@ -15,6 +15,7 @@ import {
   SHORT_NAME,
   formatPrice,
 } from "./data/product";
+import { trackInitiateCheckout, trackOrder, trackViewContent } from "./pixel";
 
 const DELIVERIES = [{ id: "home", label: "Cash on delivery", icon: "cod" }];
 
@@ -73,7 +74,16 @@ export default function App() {
     return () => window.clearTimeout(timer);
   }, [toast]);
 
+  useEffect(() => {
+    trackViewContent({ price: COMBOS[1]?.price || 119 });
+  }, []);
+
   function scrollToOrder() {
+    trackInitiateCheckout({
+      price: combo.price,
+      quantity: combo.quantity,
+      comboId: combo.id,
+    });
     orderRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
@@ -116,13 +126,14 @@ export default function App() {
     setSubmitting(false);
     setToast(result.message);
     if (result.ok) {
-      if (typeof window.fbq === "function") {
-        window.fbq("track", "Lead", {
-          content_name: SHORT_NAME,
-          value: combo.price,
-          currency: "SAR",
-        });
-      }
+      trackOrder({
+        name: recipient,
+        mobile,
+        city: city.trim(),
+        price: combo.price,
+        quantity: combo.quantity,
+        comboId: combo.id,
+      });
       setName("");
       setPhone("");
       setCity("");
@@ -211,7 +222,7 @@ export default function App() {
         <ProductSpecs />
       </section>
 
-      <Reviews />
+      <Reviews onShop={scrollToOrder} />
 
       <Certificates />
 
@@ -445,7 +456,7 @@ function Certificates() {
   );
 }
 
-function Reviews() {
+function Reviews({ onShop }) {
   return (
     <section className="reviews" aria-labelledby="reviews-title">
       <h2 id="reviews-title">What people are saying</h2>
@@ -468,11 +479,7 @@ function Reviews() {
           </li>
         ))}
       </ul>
-      <button
-        type="button"
-        className="buy-now reviews-cta"
-        onClick={() => document.getElementById("order-box")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-      >
+      <button type="button" className="buy-now reviews-cta" onClick={onShop}>
         Get free delivery
       </button>
     </section>
