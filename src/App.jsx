@@ -13,6 +13,8 @@ import {
   RETURN_POLICY,
   REVIEWS,
   SHORT_NAME,
+  WHATSAPP_DISPLAY,
+  WHATSAPP_LINK,
   formatPrice,
 } from "./data/product";
 import { trackInitiateCheckout, trackOrder, trackViewContent } from "./pixel";
@@ -44,6 +46,7 @@ export default function App() {
   const [toast, setToast] = useState("");
   const [showSticky, setShowSticky] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [whatsAppOpen, setWhatsAppOpen] = useState(true);
 
   const combo = COMBOS[comboIndex];
 
@@ -177,8 +180,8 @@ export default function App() {
           <button type="button" className="pharmacy-primary" ref={heroCtaRef} onClick={scrollToOrder}>
             Shop now
           </button>
-          <a className="pharmacy-secondary" href="https://lin.ee/QXp84HX" target="_blank" rel="noreferrer">
-            Message us
+          <a className="pharmacy-secondary" href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
+            WhatsApp
           </a>
         </div>
         <ul className="pharmacy-trust">
@@ -379,15 +382,41 @@ export default function App() {
         </div>
       )}
 
-      <a
-        className="message-us"
-        href="https://lin.ee/QXp84HX"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Message us on LINE"
-      >
-        LINE
-      </a>
+      <div className={showSticky ? "whatsapp-dock is-raised" : "whatsapp-dock"}>
+        {whatsAppOpen && (
+          <div className="whatsapp-pop" role="dialog" aria-label="WhatsApp chat">
+            <button
+              type="button"
+              className="whatsapp-close"
+              aria-label="Close WhatsApp popup"
+              onClick={() => setWhatsAppOpen(false)}
+            >
+              ×
+            </button>
+            <p className="whatsapp-pop-title">Chat on WhatsApp</p>
+            <p className="whatsapp-pop-copy">Ask about your order. We reply on WhatsApp.</p>
+            <p className="whatsapp-pop-number">{WHATSAPP_DISPLAY}</p>
+            <a className="whatsapp-pop-btn" href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
+              Message us
+            </a>
+          </div>
+        )}
+        <a
+          className="message-us"
+          href={WHATSAPP_LINK}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Message us on WhatsApp"
+          onClick={() => setWhatsAppOpen(true)}
+        >
+          <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M16.01 3C9.39 3 4 8.34 4 14.9c0 2.1.56 4.14 1.62 5.95L4 29l8.36-2.18A12.1 12.1 0 0 0 16.01 27C22.63 27 28 21.66 28 15.1S22.63 3 16.01 3zm0 21.9c-1.8 0-3.56-.48-5.1-1.4l-.37-.21-4.96 1.29 1.33-4.8-.24-.39A9.7 9.7 0 0 1 6.1 14.9c0-5.4 4.45-9.8 9.91-9.8s9.91 4.4 9.91 9.8-4.45 9.8-9.91 9.8zm5.44-7.34c-.3-.15-1.76-.86-2.03-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.45-2.38-1.45-.88-.78-1.47-1.74-1.64-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.92-2.2-.24-.57-.49-.49-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1-1.04 2.46s1.06 2.85 1.21 3.05c.15.2 2.09 3.16 5.06 4.43.71.3 1.26.48 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.71 2.01-1.4.25-.69.25-1.28.17-1.4-.07-.12-.27-.2-.57-.35z"
+            />
+          </svg>
+        </a>
+      </div>
 
       {toast && (
         <div className="toast" role="alert">

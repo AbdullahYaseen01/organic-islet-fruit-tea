@@ -209,13 +209,19 @@ export const RETURN_POLICY = [
   "Changed your mind? Contact us within 7 days of receiving the parcel and we will arrange a return or exchange.",
   "The box should be unused and still in its original packing.",
   "If a box arrives damaged, or the contents do not match your order, contact us and we will replace it.",
-  "Message us on LINE and we will reply with the next step. Delivery of a replacement is free.",
+  "Message us on WhatsApp and we will reply with the next step. Delivery of a replacement is free.",
 ];
 
 export const DEMO_ADDRESS = {
   name: "SARA AL-FAHAD CARE PHARMACY",
   lines: ["Prince Mohammad bin Abdulaziz St, Ash Shati", "Jazan 1282812", "Saudi Arabia"],
 };
+
+export const WHATSAPP_NUMBER = "966598382203";
+export const WHATSAPP_DISPLAY = "+966 59 838 2203";
+export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  "Hello, I want to order Kinoki Cleansing Detox Foot Pads.",
+)}`;
 
 export function formatPrice(amount) {
   return `SAR ${Number(amount).toFixed(2)}`;
