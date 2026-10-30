@@ -46,9 +46,14 @@ export default function App() {
   const [toast, setToast] = useState("");
   const [showSticky, setShowSticky] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [whatsAppOpen, setWhatsAppOpen] = useState(true);
+  const [whatsAppOpen, setWhatsAppOpen] = useState(false);
 
   const combo = COMBOS[comboIndex];
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setWhatsAppOpen(true), 900);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const update = () => {
@@ -382,9 +387,15 @@ export default function App() {
         </div>
       )}
 
-      <div className={showSticky ? "whatsapp-dock is-raised" : "whatsapp-dock"}>
-        {whatsAppOpen && (
-          <div className="whatsapp-pop" role="dialog" aria-label="WhatsApp chat">
+      {whatsAppOpen && (
+        <div className="whatsapp-notice" role="dialog" aria-modal="true" aria-label="WhatsApp notice">
+          <button
+            type="button"
+            className="whatsapp-notice-backdrop"
+            aria-label="Close WhatsApp notice"
+            onClick={() => setWhatsAppOpen(false)}
+          />
+          <div className="whatsapp-pop">
             <button
               type="button"
               className="whatsapp-close"
@@ -393,21 +404,28 @@ export default function App() {
             >
               ×
             </button>
-            <p className="whatsapp-pop-title">Chat on WhatsApp</p>
-            <p className="whatsapp-pop-copy">Ask about your order. We reply on WhatsApp.</p>
+            <p className="whatsapp-pop-kicker">Customer notice</p>
+            <p className="whatsapp-pop-title">Message us on WhatsApp</p>
+            <p className="whatsapp-pop-copy">Need help with your order? Chat with us now.</p>
             <p className="whatsapp-pop-number">{WHATSAPP_DISPLAY}</p>
             <a className="whatsapp-pop-btn" href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
-              Message us
+              Open WhatsApp
             </a>
           </div>
-        )}
+        </div>
+      )}
+
+      <div className={showSticky ? "whatsapp-dock is-raised" : "whatsapp-dock"}>
         <a
           className="message-us"
           href={WHATSAPP_LINK}
           target="_blank"
           rel="noreferrer"
           aria-label="Message us on WhatsApp"
-          onClick={() => setWhatsAppOpen(true)}
+          onClick={(event) => {
+            event.preventDefault();
+            setWhatsAppOpen(true);
+          }}
         >
           <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
             <path
